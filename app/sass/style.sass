@@ -1,0 +1,219 @@
+@import _reset
+@import _fonts
+@import _colors-fonts.sass
+@import _mixins
+@import _general
+
+
+
+
+.title
+	padding: 40px 0
+	font: 900 2em/1em  $font
+	color: white
+
+.btn
+	display: block
+	font: 1em/1em $font
+	text-transform: uppercase
+	text-align: center
+	color: white
+	padding: 12px
+	background: red
+	border: none
+	position: relative
+	z-index: 99
+	&:hover
+		background: $accent
+
+		
+
+main
+	padding: 25px 0
+
+
+
+
+
+
+// .logo
+// 	display: block
+// 	margin-right: 15px
+// 	img
+// 		display: block
+// 		max-width: 100%
+
+
+.carousel
+	display: flex
+	width: 100%
+	position: relative
+	.carousel__more
+		display: flex
+		flex-wrap: wrap
+		flex-direction: column
+		justify-content: space-around
+		align-items: space-around
+		width: 120px
+		height: 48px
+		background-color: #292c33
+		background: linear-gradient(to right, rgba(41, 44, 51, 0) 0%, #292c33 60%)
+		position: absolute
+		right: 0
+		top: 0
+		z-index: 2
+		.carousel__text
+			font: .87rem/1.25 $font
+			text-align: right
+			color: $pink
+			span
+				display: block
+				margin-top: 5px
+				font: 900 1.5rem/1 $font
+#carousel.owl-carousel 
+	position: relative
+	background: red
+	padding-left: 30px
+	z-index: 4
+	.owl-stage-outer,
+	.owl-stage
+		background: green
+		overflow-x: hidden
+		overflow-y: visible
+		position: relative
+		z-index: 5
+	.owl-stage
+		// padding: 0 0 0 70px
+	.owl-item
+		display: block
+		width: 100%
+		height: 48px
+		background: blue
+		a
+			display: block
+			width: 48px
+			height: 48px
+			position: relative
+			// z-index: 5
+			&:before
+				content: attr(data-info)
+				display: none
+				width: auto
+				height: 20px
+				background: white
+				padding: 5px
+				font: .87rem/1.25 $font
+				color: red
+				position: absolute
+				bottom: -8px
+				bottom: -25px
+				left: -50%
+				z-index: 7
+			&:after
+				content: ''
+				display: none
+				width: 8px
+				height: 4px
+				background: white
+				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+				position: absolute
+				bottom: -5px
+				left: calc(50% - 4px)
+				z-index: 8
+			&:hover
+				&:before,
+				&:after
+					display: block
+
+			img
+				display: block
+				max-width: 100%
+				position: relative
+				z-index: 3
+
+
+.tooltip 
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+
+.tooltip .tooltiptext
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+	
+
+.tooltip .tooltiptext::after
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+	
+
+.tooltip:hover .tooltiptext
+	visibility: visible;
+	opacity: 1;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1200.98px)
+	color: red
+
+// md
+@media (max-width: 992.98px)
+	color: red
+
+// sm
+@media (max-width: 768.98px)
+	color: red
+
+// xs
+@media (max-width: 576.98px)
+	color: red
