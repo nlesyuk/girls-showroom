@@ -20,6 +20,7 @@ $("#carousel").owlCarousel({
 		margin: 0,
 		nav: false,
 		// stagePadding: 30,
+		loop: true,
 		responsive:{
 			0:{
 				items: 1
