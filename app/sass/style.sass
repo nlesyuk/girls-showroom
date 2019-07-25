@@ -7,7 +7,8 @@
 
 
 
-
+.container
+	max-width: 1200px !important
 
 .btn
 	display: block
@@ -146,9 +147,14 @@ main
 	padding: 0 0 40px 0
 	font: 900 2em/1em  $font
 	color: white
+
+// MIDDLE BLOCKS
 .insta__cont
-	width: 100%
+	max-width: 100%
+	width: 392px
+	min-width: 392px
 	height: auto
+	margin: 0 auto
 	overflow: hidden
 	min-height: 460px
 	border-radius: 8px
@@ -157,74 +163,288 @@ main
 	.insta__top
 		display: flex
 		align-items: center
-	.insta__ava
-		display: block
-		padding: 12px 10px
-		img
+		.insta__ava
 			display: block
-			width: 32px
-			height: 32px
-			border-radius: 50%
-	.insta__name
-		display: block
-		font: .87rem/1.4 $font
-		text-decoration: none
-		color: $black
-		span
+			padding: 12px 10px
+			img
+				display: block
+				width: 32px
+				height: 32px
+				border-radius: 50%
+		.insta__name
 			display: block
-			font: .75rem/1 $font
+			font: .87rem/1.4 $font
+			text-decoration: none
+			color: $black
+			span
+				display: block
+				font: .75rem/1 $font
+		.insta__msg
+			display: inline-block
+			margin-left: 50px
+			margin-left: auto
+			margin-right: 12px
+			width: 110px
+			height: auto
+			padding: 8px 16px
+			padding: 8px
+			border-radius: 4px
+			font: bold .75rem/1 $font
+			letter-spacing: 1px
+			text-decoration: none
+			text-transform: uppercase
+			text-align: center
+			color: white
+			background: $blue
+			&:hover
+				opacity: .9
+				transition: all .25s
 
-	.insta__msg
-		display: inline-block
-		margin-left: 50px
-		margin-right: 12px
-		width: 125px
-		height: auto
-		padding: 8px 16px
-		border-radius: 4px
-		font: bold .75rem/1 $font
-		letter-spacing: 1px
+	.insta__imgs
+		display: flex
+		justify-content: space-between
+		height: 306px
+		overflow: hidden
+		.insta__big-photo
+			display: block
+			width: 300px
+			// height: 306px
+			overflow: hidden
+			background: blue
+			img
+				display: block
+				width: 100%
+				height: 100%
+		.insta__collage
+			width: 92px
+			align-items: flex-start
+			li
+				display: block
+				width: 92px
+				height: 77px
+				// margin-bottom: 0px
+				a
+					display: block
+					border: none
+					&:hover
+						// filter: contrast(125%)
+						opacity: .5
+				img
+					display: block
+					width: 100%
+
+	.insta__nav
+		width: 100%
+		padding: 12px
+		padding-bottom: 10px
+		.insta__btns
+			display: flex
+			justify-content: flex-start
+			li
+				transition: all .25s
+				&:nth-child(2),
+				&:nth-child(3)
+					margin-left: 12px
+				&:last-child
+					margin-left: auto
+				&:hover
+					opacity: .7
+					cursor: pointer
+					transition: all .25s
+
+	.insta__descr
+		display: block
+		width: 100%
+		padding: 12px
+		padding-top: 0px
 		text-decoration: none
-		text-transform: uppercase
-		text-align: center
-		color: white
-		background: $blue
-		flex-grow: 1
+		.insta__text1
+			display: block
+			font: .84rem/1.4 $font
+			text-decoration: none
+			color: $black
+			margin-bottom: 2px
+		.insta__text2
+			display: block
+			font: .84rem/1.4 $font
+			text-decoration: none
+			color: $black
+			span
+				font-weight: 800
 
 
 .maps__cont
 	width: 100%
-	height: auto
+	min-height: 460px
 	overflow: hidden
 	border-radius: 8px
 	background: white
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
 	.maps__subtitle
 		font: bold 1rem/1 $font
-		padding: 16px
+		padding: 20px
 		color: $black
 	.maps__code
 		display: block
 		width: 100%
 		height: 100%
-		min-height: 390px
+		min-height: 404px
 		background: red
+
+
 .topactive__cont
 	width: 100%
 	height: auto
 	overflow: hidden
-	min-height: 460px
+	min-height: 60px
 	border-radius: 8px
+	padding: 20px 12px
 	background: white
+	background-image: linear-gradient(120deg, #f4006b, #8f138e)
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
+	margin-bottom: 20px
+	.topactive__title
+		font: bold 1rem/1 $font
+		color: white
+		padding-bottom: 20px
+	.topactive__items
+		display: flex
+		justify-content: space-around
+		li 
+			margin-right: 5px
+			position: relative
+			&:last-child
+				margin-right: 0px
+			.topactive__social
+				width: 100%
+				display: flex
+				justify-content: center
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+				padding: 5px 0
+				border-radius: 5px
+				position: absolute
+				top: 0
+				li
+					position: relative
+					a 
+						img 
+							width: 12px
+							transition: all .25s
+							&:hover
+								opacity: .5
+								transition: all .25s
+			.topactive__photo
+				display: block
+				width: 97%
+				max-width: 100%
+				border-radius: 5px
+			.topactive__btn
+				display: block
+				width: 40px
+				padding: 3px
+				font: .65rem/1 $font
+				text-transform: lowercase
+				text-decoration: none
+				text-align: center
+				color: white
+				border-radius: 4px
+				background: $green
+				margin-top: -18px
+				margin-left: 4px
+				margin-bottom: 10px
+				position: relative
+				z-index: 5
+				transition: all .25s
+				&:hover
+					background: #10af04
+					transition: all .25s
+			.topactive__name
+				display: block
+				font: bold .75rem/1 $font
+				text-decoration: none
+				color: white
+				transition: all .25s
+				&:hover
+					opacity: .7
+					transition: all .25s
+
+
 .video__cont
 	width: 100%
 	height: auto
+	min-height: 223px
 	overflow: hidden
-	min-height: 460px
 	border-radius: 8px
 	background: white
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
+
+
+
+
+// NEAR BOTTOM
+.filter__cont
+	width: 100%
+	height: auto
+	padding: 24px 30px 32px 30px
+	margin: 40px 0
+	border-radius: 8px
+	background-image: linear-gradient(96deg, #f4006b, #8f138e)
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	.filter__title
+		font: 900 1.5rem/1.3 $font
+		color: white
+		span
+			font: 1rem/1.5 $font
+			display: block
+	.filter__form
+		display: flex
+		width: 50%
+		margin-left: 32px
+		position: relative
+		select
+			padding: 14px 80px 14px 12px
+			font: bold 1rem/1.5 $font
+			color: $black
+			box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
+			background: white
+			border-radius: 5px
+			border: none
+			appearance: none
+			position: relative
+			&:after
+				content: " "
+				display: block
+				width: 10px
+				height: 10px
+				background: red
+				border-top: 1px solid $black
+				border-left: 1px solid $black
+				position: absolute
+				top: 0
+				right: 0
+				z-index: 5
+		.filter__text1 
+			min-width: 80px
+			font: 1rem/1 $font
+			color: white
+			align-self: center
+			margin: 0 16px
+		button
+			display: block
+			height: auto
+			margin-left: 16px
+			padding: 20px 25px
+			background: $darkBlue
+			font: 700 1rem/1 $font
+			letter-spacing: 2px
+			text-transform: uppercase
+			color: white
+			border: none
+			border-radius: 4px
+
+
 
 
 
@@ -233,7 +453,6 @@ main
 
 
 
-392*0.767
 
 
 

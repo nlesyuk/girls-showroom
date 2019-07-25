@@ -52,7 +52,6 @@
 
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
-						<!-- <a href="#" data-info="I'm Julia, 21 y.o."><img src="img/ava.png" alt="girl"></a> -->
 						<a href="#" class="tooltip">
 							<img src="img/ava.png" alt="girl">
 							<span class="tooltiptext">I'm Julia, 21 y.o.</span>
@@ -96,6 +95,7 @@
 			<div class="col-lg-4">
 
 				<div class="insta__cont">
+
 					<div class="insta__top">
 						<a href="#" class="insta__ava">
 							<img src="img/photo.jpg" alt="avatar">
@@ -103,11 +103,33 @@
 						<a href="#" class="insta__name">Julia <span>Milan, Italy</span></a>
 						<a href="#" class="insta__msg">message me!</a>
 					</div>
+
 					<div class="insta__imgs">
-						<img src="img/photo.jpg" alt="">
+						<a href="#" class="insta__big-photo">
+							<img src="img/photo.jpg" alt="">
+						</a>
+						<ul class="insta__collage">
+							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
+							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
+							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
+							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
+						</ul>
 					</div>
-					<div class="insta__nav"></div>
-					<div class="insta__descr"></div>
+
+					<div class="insta__nav">
+						<ul class="insta__btns">
+							<li><a href="#"><img src="img/like.png" alt="like"></a></li>
+							<li><a href="#"><img src="img/comment.png" alt="like"></a></li>
+							<li><a href="#"><img src="img/shape.png" alt="like"></a></li>
+							<li><a href="#"><img src="img/collect.png" alt="like"></a></li>
+						</ul>
+					</div>
+					
+					<a href="#" class="insta__descr">
+						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
+						<p class="insta__text2"><span>Julia</span> Single hottie looking for a real man! Write to me! ❤</p>
+					</a>
+
 				</div>
 
 			</div>
@@ -115,19 +137,121 @@
 
 				<div class="maps__cont">
 					<h2 class="maps__subtitle">Girls nearby</h2>
-					<div class="maps__code">  as</div>
+					<div class="maps__code">
+						<!-- <iframe width="100%" height="300" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" src="https://map.pop6.com/tile/lat/58.40112/lon/15.64941/zoom/11/width/1400/height/600/page/aHR0cDovL2FkdWx0ZnJpZW5kZmluZGVyLmNvbS9wL3JlZ2lzdGVyLmNnaT9waWQ9cDYyMTUxYyZzaXRlPWZmYWR1bHQmbGFuZz1lbmdsaXNoJmNyZWF0aXZlPQ%3D%3D/target/_self.html"></iframe>
+						 -->
+						 <script type="text/javascript">
+							var xmlhttp = new XMLHttpRequest();
+							var ip = '194.183.167.96';
+							var apiKey = 'uCyqbdI1l9OaCQPnq6ArSeU63JkXwi3XfF6ZDnu6';
+							var method = 'city'; 
+							var url = 'https://ip-location.icu/api/v1/'+method+'/?apiKey=' +apiKey+'&ip=' +ip;
+							
+							xmlhttp.onreadystatechange = function() {
+							 if (this.readyState == 4 && this.status == 200) {
+							  var result = JSON.parse(this.responseText);
+							  console.log(result);
+							 }
+							};
+							
+							xmlhttp.open("GET", url, true);
+							xmlhttp.send();
+						</script>
+						
+					</div>
 				</div>
 
 			</div>
 			<div class="col-lg-4">
 
-				<div class="topactive__cont"></div>
-				<div class="video__cont"></div>
+				<div class="topactive__cont">
+					<p class="topactive__title">Top Active Girls</p>
+					<ul class="topactive__items">
+						<li>
+							<ul class="topactive__social">
+								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+							</ul>
+							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<a href="#" class="topactive__btn">Online</a>
+							<a href="#" class="topactive__name">Ekaterina, 23</a>
+						</li>
+						<li>
+							<ul class="topactive__social">
+								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+							</ul>
+							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<a href="#" class="topactive__btn">Online</a>
+							<p class="topactive__name">Ekaterina, 23</p>
+						</li>
+						<li>
+							<ul class="topactive__social">
+								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+							</ul>
+							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<a href="#" class="topactive__btn">Online</a>
+							<p class="topactive__name">Ekaterina, 23</p>
+						</li>
+						<li>
+							<ul class="topactive__social">
+								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+							</ul>
+							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<a href="#" class="topactive__btn">Online</a>
+							<p class="topactive__name">Ekaterina, 23</p>
+						</li>
+
+					</ul>
+				</div>
+				<div class="video__cont">
+					asd
+				</div>
 
 			</div>
 		</div>
 
 
+
+
+		<div class="row">
+			<div class="col">
+
+				<div class="filter__cont">
+
+					<h2 class="filter__title">Choose Your Interest<span>We have expert dating advice for everyone! </span></h2>
+
+					<form action="" class="filter__form">
+
+						<select name="" id="">
+							<option value="male">I'm Male</option>
+							<option value="fmail">I'm Female</option>
+						</select>
+
+						<p class="filter__text1">looking for</p>
+
+						<select name="" id="">
+							<option value="male">I'm Male</option>
+							<option value="fmail">I'm Female</option>
+						</select>	
+						
+						<button type="submit">Search</button>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
 
 
 
@@ -136,7 +260,25 @@
 
 
 
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">1</div>
+			<div class="col-lg-3">1</div>
+			<div class="col-lg-3">1</div>
+			<div class="col-lg-3">1</div>
+		</div>
+		<div class="row">
+			<div class="col">
 
+				<p class="footer__text1">© 2019 Cupids | All Rights Reserved</p>
+				<hr>
+				<p class="footer__text2">Disclaimer: Great efforts are made to maintain reliable data on all offers presented. However, this data is provided without warranty. Users should always check the offer provider’s official website for current terms and details. Our site receives compensation from many of the offers listed on the site. Along with key review factors, this compensation may impact how and where products appear across the site (including, for example, the order in which they appear). Our site does not include the entire universe of available offers. Editorial opinions expressed on the site are strictly our own and are not provided, endorsed, or approved by advertisers.</p>
+
+			</div>
+		</div>
+	</div>
+</footer>
 
 
 
