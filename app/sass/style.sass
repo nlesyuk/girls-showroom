@@ -4,6 +4,8 @@
 @import _mixins
 @import _general
 
+.row
+	// background: blue
 
 .container
 	max-width: 1200px !important
@@ -70,12 +72,9 @@ main
 #carousel.owl-carousel
 	width: 100% 
 	position: relative
-	// padding-left: 30px
-	// background: red
 	z-index: 4
 	.owl-stage-outer,
 	.owl-stage
-		// background: green
 		overflow-x: hidden
 		overflow-y: auto
 		position: relative
@@ -87,7 +86,6 @@ main
 		display: block
 		width: 100%
 		height: 48px
-		// background: blue
 		a
 			display: block
 			margin: 0 auto
@@ -100,7 +98,6 @@ main
 				display: block
 				max-width: 100%
 				border-radius: 50%
-				// border: 1px solid red
 				position: relative
 				z-index: 3
 
@@ -151,6 +148,7 @@ main
 	color: white
 
 // MIDDLE BLOCKS
+// Insta
 .insta__cont
 	width: 392px
 	width: 100%
@@ -225,13 +223,12 @@ main
 				display: block
 				width: 92px
 				height: 77px
-				// margin-bottom: 0px
 				a
 					display: block
 					border: none
 					&:hover
-						// filter: contrast(125%)
-						opacity: .5
+						filter: contrast(115%)
+						// opacity: .5
 				img
 					display: block
 					width: 100%
@@ -275,7 +272,7 @@ main
 			span
 				font-weight: 800
 
-
+// Map
 .maps__cont
 	width: 100%
 	min-height: 460px
@@ -294,7 +291,7 @@ main
 		min-height: 404px
 		background: red
 
-
+// TOP Active
 .topactive__cont
 	width: 100%
 	height: auto
@@ -371,16 +368,21 @@ main
 					opacity: .7
 					transition: all .25s
 
-
+// Video
 .video__cont
 	width: 100%
 	height: auto
-	min-height: 223px
 	overflow: hidden
 	border-radius: 8px
-	background: white
+	background: black
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
-
+	.plyr__video-embed
+		display: block
+		// display: flex
+		// align-items: center
+	video
+		display: block
+		max-width: 100%
 
 
 
@@ -498,10 +500,12 @@ main
 				border: none
 				background: transparent
 				position: relative
-				&:hover
-					cursor: pointer
-					// background: #5454e6
-					// color: white
+				cursor: pointer
+				&[class~="prev"]:hover:after,
+				&[class~="next"]:hover:after
+					border-top: 2px solid #8f138e
+					border-left: 2px solid #8f138e
+					transition: all .25s
 				&[class~="prev"]:after
 					content: " "
 					display: block
@@ -515,6 +519,7 @@ main
 					transform: rotate(-45deg)
 					z-index: 5
 					pointer-events: none
+					transition: all .25s
 				&[class~="next"]:after
 					content: " "
 					display: block
@@ -528,6 +533,7 @@ main
 					transform: rotate(135deg)
 					z-index: 5
 					pointer-events: none
+					transition: all .25s
 	.tabs__cont
 		width: calc(100% + 30px)
 		margin-left: -15px
@@ -586,23 +592,10 @@ main
 					color: white
 
 
-// BOTTOM
-
-
-
-
-
-
-
-
-
-
-
-
 
 // FOOTER
 footer
-	padding: 40px
+	padding: 40px 0
 	.footer__lists
 		display: block
 		width: 100%
@@ -627,7 +620,6 @@ footer
 				&:hover
 					background: $pink
 					color: white
-
 
 	.footer__text1
 		display: block
@@ -656,29 +648,72 @@ footer
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 1200.98px)
 	color: red
 
 // md
 @media (max-width: 992.98px)
-	color: red
+	main
+		padding: 10px 0 25px 0
+	// TOP
+	.logo
+		width: 100%
+		img
+			display: block
+			margin: 0 auto
+			margin-bottom: 10px
+	.carousel
+		width: 100%
+		margin-left: 0px
+
+	// MIDDLE
+	.title
+		padding: 0 0 40px 0
+		font: 900 1.75em/1.35em  $font
+		color: white
+
+	#carousel.owl-carousel
+		.owl-stage
+			padding-bottom: 48px
+
+
+
 
 // sm
 @media (max-width: 768.98px)
 	color: red
 
+
+
+
+	footer
+		padding: 40px 0
+		.footer__lists
+			width: 250px
+			margin: 0 auto
+			max-width: 100%
+			margin-bottom: 20px
+			&.last
+				margin-bottom: 0px
+			li
+				text-align: center
+
+
+
 // xs
 @media (max-width: 576.98px)
-	color: red
+
+
+
+
+
+
+
+
+	
+	footer
+		padding: 40px 0
+		.footer__lists
+			width: 100%
+			li
+				text-align: center

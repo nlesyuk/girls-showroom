@@ -3,8 +3,8 @@ let vm = new Vue({
 	data: {
 		isActiveTabs: {
 			sex: true,
-			gey: false,
-			webcam: false
+			gey: true,
+			webcam: true
 		}
 	},
 	methods: {
@@ -14,6 +14,8 @@ let vm = new Vue({
 		}
 	},
 	created(){
-		console.log("test")
+
+		// activate the tabs area
+		setTimeout(()=>{ this.activateTab('sex') }, 1500);
 	}
 });

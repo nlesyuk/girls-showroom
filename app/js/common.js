@@ -21,25 +21,28 @@ $("#carousel").owlCarousel({
 	// stagePadding: 30,
 	loop: true,
 	responsive:{
-		0:{
-			items: 1
+		320:{
+			items: 5
 		},
-		600:{
-			items: 3
+		546:{
+			items: 10
 		},
-		1000:{
+		768:{
+			items: 12
+		},
+		992:{
+			items: 10
+		},
+		1140:{
 			items: 15
 		}
 	}
 });
-var owl = $('#owl_sex');
-$('.owl_sex.prev').click(function() {
-	owl.trigger('prev.owl.carousel', [250]);
-});
-$('.owl_sex.next').click(function() {
-	owl.trigger('next.owl.carousel', [250]);
-});
 
+
+owl_sex();
+owl_gey();
+owl_webcam();
 
 // sliders
 // 1

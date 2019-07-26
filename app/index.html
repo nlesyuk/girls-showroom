@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Заголовок</title>
+	<title>Главная</title>
 	<meta name="description" content="">
 	<meta content="width=1170" name="viewport" id="viewport">
 
@@ -31,9 +31,10 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" integrity="sha256-D9AvR0EzkNZoWZVSvI3ch+uf/Z5izrIpcbsykVphwPU=" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" /> -->
 
+	<link rel="stylesheet" href="libs/video-js/plyr.css">
 	<link rel="stylesheet" href="css/style.min.css">
+
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,700i,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -45,12 +46,11 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="d-flex col-lg-12">
+			<div class="d-flex col-12 flex-lg-nowrap flex-sm-wrap flex-wrap">
 
 				<a href="/" class="logo">
 					<img src="img/logo.png" alt="logo">
 				</a>
-
 
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
@@ -204,15 +204,26 @@
 					</ul>
 				</div>
 
-				<div class="video__cont align-self-end">
-						https://github.com/sampotts/plyr
+					<!-- https://github.com/sampotts/plyr -->
+				<div class="video__cont align-self-end ">
+					<div class="plyr__video-embed">
+
+						<video controls="" crossorigin="" playsinline="" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+							
+							<!-- Video files -->
+							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720"> -->
+							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080"> -->
+						
+						</video>
+					</div>
 				</div>
 
 			</div>
 		</div>
 
 
-		<div class="row">
+		<div class="row" >
 			<div class="col">
 
 				<div class="filter__cont">
@@ -344,7 +355,7 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-md-4">
 				
 				<ul class="footer__lists">
 					<li>In search of a boy</li>
@@ -356,7 +367,7 @@
 				</ul>
 
 			</div>
-			<div class="col-lg-4">
+			<div class="col-md-4">
 
 				<ul class="footer__lists">
 					<li>In search of a girl</li>
@@ -368,9 +379,9 @@
 				</ul>
 
 			</div>
-			<div class="col-lg-4">
+			<div class="col-md-4">
 
-				<ul class="footer__lists">
+				<ul class="footer__lists last">
 					<li>In search of a man</li>
 					<li><a href="#">Boy looking for a man</a></li>
 					<li><a href="#">Girl looking for a man</a></li>
@@ -398,8 +409,6 @@
 
 
 
-
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 
@@ -408,6 +417,7 @@
 	<!-- production -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
+	<script src="libs/video-js/plyr.min.js"></script>
 	<script src="js/setsOfFunctions.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/vue-script.js"></script>
