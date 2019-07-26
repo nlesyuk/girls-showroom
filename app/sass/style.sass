@@ -5,8 +5,6 @@
 @import _general
 
 
-
-
 .container
 	max-width: 1200px !important
 
@@ -24,7 +22,6 @@
 	&:hover
 		background: $accent
 
-		
 
 main
 	padding: 25px 0
@@ -102,13 +99,18 @@ main
 			img
 				display: block
 				max-width: 100%
+				border-radius: 50%
+				// border: 1px solid red
 				position: relative
 				z-index: 3
 
 .tooltip 
 	position: relative
 	display: inline-block	
-	display: block	
+	display: block
+	background-image: linear-gradient(120deg, #f4006b, #8f138e)
+	border-radius: 50%
+	padding: 2px
 	.tooltiptext
 		visibility: hidden
 		width: 120px
@@ -150,9 +152,10 @@ main
 
 // MIDDLE BLOCKS
 .insta__cont
-	max-width: 100%
 	width: 392px
+	width: 100%
 	min-width: 392px
+	min-width: 300px
 	height: auto
 	margin: 0 auto
 	overflow: hidden
@@ -197,7 +200,7 @@ main
 			color: white
 			background: $blue
 			&:hover
-				opacity: .9
+				background: #1d85ea
 				transition: all .25s
 
 	.insta__imgs
@@ -213,7 +216,7 @@ main
 			background: blue
 			img
 				display: block
-				width: 100%
+				// width: 100%
 				height: 100%
 		.insta__collage
 			width: 92px
@@ -248,7 +251,7 @@ main
 				&:last-child
 					margin-left: auto
 				&:hover
-					opacity: .7
+					opacity: .6
 					cursor: pointer
 					transition: all .25s
 
@@ -381,12 +384,12 @@ main
 
 
 
-// NEAR BOTTOM
+// MIDDLE 2
 .filter__cont
 	width: 100%
 	height: auto
-	padding: 24px 30px 32px 30px
-	margin: 40px 0
+	padding: 32px 30px
+	margin: 40px 0 92px 0
 	border-radius: 8px
 	background-image: linear-gradient(96deg, #f4006b, #8f138e)
 	display: flex
@@ -403,6 +406,21 @@ main
 		width: 50%
 		margin-left: 32px
 		position: relative
+		.filter__selectcont
+			position: relative
+			&:after
+				content: " "
+				display: block
+				width: 10px
+				height: 10px
+				border-top: 2px solid $grey
+				border-left: 2px solid $grey
+				position: absolute
+				top: calc(50% - 10px)
+				right: 15px
+				transform: rotate(-135deg)
+				z-index: 5
+				pointer-events: none
 		select
 			padding: 14px 80px 14px 12px
 			font: bold 1rem/1.5 $font
@@ -413,18 +431,8 @@ main
 			border: none
 			appearance: none
 			position: relative
-			&:after
-				content: " "
-				display: block
-				width: 10px
-				height: 10px
-				background: red
-				border-top: 1px solid $black
-				border-left: 1px solid $black
-				position: absolute
-				top: 0
-				right: 0
-				z-index: 5
+			cursor: pointer
+
 		.filter__text1 
 			min-width: 80px
 			font: 1rem/1 $font
@@ -443,10 +451,139 @@ main
 			color: white
 			border: none
 			border-radius: 4px
+			&:hover
+				background: #363686
+				cursor: pointer
 
 
 
-
+// BIG 3 SLIDERS
+#tabs
+	width: 100%
+	background: $darkBlue
+	.tabs__nav
+		display: flex
+		justify-content: flex-start
+		margin-top: -47px
+		li
+			margin-left: 1px
+			button
+				display: block
+				border-top-left-radius: 5px
+				border-top-right-radius: 5px
+				padding: 17px 40px
+				border: none
+				font: .87rem/1 $font
+				color: $black
+				&:hover
+					// opacity: .8
+					cursor: pointer
+					background: #5454e6
+					color: white
+				&.active
+					background: $darkBlue
+					color: white
+	.tabs__control
+		display: flex
+		width: 60px
+		justify-content: flex-start
+		margin-left: auto
+		margin-top: -36px
+		li
+			margin-left: 1px
+			button
+				display: block
+				width: 30px
+				height: 30px
+				border: none
+				background: transparent
+				position: relative
+				&:hover
+					cursor: pointer
+					// background: #5454e6
+					// color: white
+				&[class~="prev"]:after
+					content: " "
+					display: block
+					width: 10px
+					height: 10px
+					border-top: 2px solid #cfd6e6
+					border-left: 2px solid #cfd6e6
+					position: absolute
+					top: calc(50% - 5px)
+					right: calc(50% - 8px)
+					transform: rotate(-45deg)
+					z-index: 5
+					pointer-events: none
+				&[class~="next"]:after
+					content: " "
+					display: block
+					width: 10px
+					height: 10px
+					border-top: 2px solid #cfd6e6
+					border-left: 2px solid #cfd6e6
+					position: absolute
+					top: calc(50% - 5px)
+					right: calc(50% - 5px)
+					transform: rotate(135deg)
+					z-index: 5
+					pointer-events: none
+	.tabs__cont
+		width: calc(100% + 30px)
+		margin-left: -15px
+		.owl-carousel
+			padding: 27px 0 18px 0
+			.tabs__item
+				display: block
+				padding: 12px
+				border-radius: 8px
+				background: transparent
+				text-decoration: none
+				&:hover
+					box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.5)
+					background: white
+					.tabs__name,
+					.tabs__descr
+						color: $black
+				.tabs__img
+					display: block
+					max-width: 100%
+					border-radius: 5px
+				.tabs__online
+					display: block
+					width: 40px
+					padding: 3px
+					font: .65rem/1 $font
+					text-transform: lowercase
+					text-decoration: none
+					text-align: center
+					color: white
+					border-radius: 4px
+					background: $green
+					margin-top: -20px
+					margin-left: 5px
+					margin-bottom: 10px
+					position: relative
+					z-index: 5
+					transition: all .25s
+					&:before
+						content: "online"
+					&.offline
+						filter: grayscale(100%)
+						&:before
+							content: "offline"
+					&:hover
+						background: #10af04
+						transition: all .25s
+				.tabs__name
+					font: bold .87rem/1.4 $font
+					text-decoration: none
+					color: white
+					margin: 2px 0 4px 0
+				.tabs__descr
+					font: .87rem/1.4 $font
+					text-decoration: none
+					color: white
 
 
 // BOTTOM
@@ -466,12 +603,52 @@ main
 // FOOTER
 footer
 	padding: 40px
+	.footer__lists
+		display: block
+		width: 100%
+		padding: 12px 8px
+		border-radius: 8px
+		box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
+		background-color: #363940
+		li
+			&:first-child
+				font: bold 1.125rem/1.5 $font
+				color: #7a8599
+				margin-bottom: 8px
+				padding: 0 12px
+			a 
+				display: block
+				width: 100%
+				padding: 10px 12px
+				border-radius: 4px
+				font: .87rem/1.4 $font
+				text-decoration: none
+				color: $pink
+				&:hover
+					background: $pink
+					color: white
+
+
 	.footer__text1
+		display: block
+		width: 100%
 		font: 700 .87rem/1.5 $font
+		letter-spacing: 1px
 		color: white
+		padding-bottom: 16px
+		margin-top: 40px
 		margin-bottom: 16px
-	hr
-		background: #525866
+		position: relative
+		&:after
+			content: ""
+			display: block
+			width: 100%
+			height: 2px
+			background: #525866
+			position: absolute
+			bottom: 0
+
+
 	.footer__text2
 		margin-top: 16px
 		font: .75rem/1.5 $font

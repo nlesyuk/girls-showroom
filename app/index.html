@@ -39,6 +39,8 @@
 <body>
 
 
+<div id="app">
+
 <main>
 	<div class="container">
 
@@ -53,11 +55,11 @@
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
 						<a href="#" class="tooltip">
-							<img src="img/ava.png" alt="girl">
+							<img src="img/ava2.png" alt="girl">
 							<span class="tooltiptext">I'm Julia, 21 y.o.</span>
 						</a> 
 						<a href="#" class="tooltip">
-							<img src="img/ava.png" alt="girl">
+							<img src="img/ava2.png" alt="girl">
 							<span class="tooltiptext">I'm Maria, 21 y.o.</span>
 						</a> 
 					</div>
@@ -69,19 +71,6 @@
 			</div>
 		</div>
 
-		<!-- <div>
-			<div class="tooltip">
-				Hover over me 
-				<span class="tooltiptext">Tooltip text asasd asda s</span>
-			</div>
-
-			<a href="#" class="tooltip">
-				<img src="img/ava.png" alt="girl">
-				<span class="tooltiptext">I'm Julia, 21 y.o. sdas dasd as</span>
-			</a>
-		</div> -->
-
-
 		<div class="row">
 			<div class="col">
 
@@ -91,8 +80,8 @@
 		</div>
 
 
-		<div class="row">
-			<div class="col-lg-4">
+		<div class="row ">
+			<div class="col-lg-4 d-flex">
 
 				<div class="insta__cont">
 
@@ -133,14 +122,14 @@
 				</div>
 
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-4 d-flex">
 
 				<div class="maps__cont">
 					<h2 class="maps__subtitle">Girls nearby</h2>
 					<div class="maps__code">
 						<!-- <iframe width="100%" height="300" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" src="https://map.pop6.com/tile/lat/58.40112/lon/15.64941/zoom/11/width/1400/height/600/page/aHR0cDovL2FkdWx0ZnJpZW5kZmluZGVyLmNvbS9wL3JlZ2lzdGVyLmNnaT9waWQ9cDYyMTUxYyZzaXRlPWZmYWR1bHQmbGFuZz1lbmdsaXNoJmNyZWF0aXZlPQ%3D%3D/target/_self.html"></iframe>
 						 -->
-						 <script type="text/javascript">
+						 <!-- <script type="text/javascript">
 							var xmlhttp = new XMLHttpRequest();
 							var ip = '194.183.167.96';
 							var apiKey = 'uCyqbdI1l9OaCQPnq6ArSeU63JkXwi3XfF6ZDnu6';
@@ -156,15 +145,15 @@
 							
 							xmlhttp.open("GET", url, true);
 							xmlhttp.send();
-						</script>
+						</script> -->
 						
 					</div>
 				</div>
 
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-4 d-flex flex-column justify-content-between">
 
-				<div class="topactive__cont">
+				<div class="topactive__cont ">
 					<p class="topactive__title">Top Active Girls</p>
 					<ul class="topactive__items">
 						<li>
@@ -214,14 +203,13 @@
 
 					</ul>
 				</div>
-				<div class="video__cont">
-					asd
+
+				<div class="video__cont align-self-end">
+						https://github.com/sampotts/plyr
 				</div>
 
 			</div>
 		</div>
-
-
 
 
 		<div class="row">
@@ -232,19 +220,21 @@
 					<h2 class="filter__title">Choose Your Interest<span>We have expert dating advice for everyone! </span></h2>
 
 					<form action="" class="filter__form">
-
-						<select name="" id="">
-							<option value="male">I'm Male</option>
-							<option value="fmail">I'm Female</option>
-						</select>
-
+						<div class="filter__selectcont">
+							<select name="iam" id="iam">
+								<option value="male">I'm Male</option>
+								<option value="fmail">I'm Female</option>
+								<option value="couple">We're Couple</option>
+							</select>
+						</div>
 						<p class="filter__text1">looking for</p>
-
-						<select name="" id="">
-							<option value="male">I'm Male</option>
-							<option value="fmail">I'm Female</option>
-						</select>	
-						
+						<div class="filter__selectcont">
+							<select name="lookinFor" id="lookinFor">
+								<option value="male">Male</option>
+								<option value="fmail">Female</option>
+								<option value="couple">Couple</option>
+							</select>
+						</div>
 						<button type="submit">Search</button>
 					</form>
 
@@ -253,26 +243,148 @@
 			</div>
 		</div>
 
-
-
 	</div>
 </main>
+
+
+
+<section id="tabs">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10">
+
+				<ul class="tabs__nav">
+					<li><button id="sex"
+						:class="{'active': isActiveTabs.sex}"
+						@click="activateTab('sex')"
+						>Sex</button>
+					</li>
+					<li><button id="gey"
+						:class="{'active': isActiveTabs.gey}"
+						@click="activateTab('gey')"
+						>Gey</button>
+					</li>
+					<li><button id="webcam" 
+						:class="{'active': isActiveTabs.webcam}"
+						@click="activateTab('webcam')"
+						>Online Webcam</button>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="col-lg-2">
+
+				<ul class="tabs__control">
+					<li><button class="owl_sex prev"> &nbsp; </button></li>
+					<li><button class="owl_sex next"> &nbsp; </button></li>
+				</ul>
+				
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col">
+
+				<div class="tabs__cont">
+
+					<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle1.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online"></p>
+							<p class="tabs__name">Tatyana, 27</p>
+							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+						</a>
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle1.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online offline"></p>
+							<p class="tabs__name">Tatyana, 27</p>
+							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+						</a>
+					</div>
+
+					<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle2.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online"></p>
+							<p class="tabs__name">Tatyana, 31</p>
+							<p class="tabs__descr">Wanna !</p>
+						</a>
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle2.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online offline"></p>
+							<p class="tabs__name">Tatyana, 47</p>
+							<p class="tabs__descr">Wanna try edgeplay !</p>
+						</a>
+					</div>
+
+					<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle3.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online"></p>
+							<p class="tabs__name">Tatyana, 27</p>
+							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+						</a>
+						<a href="#" class="tabs__item">
+							<img src="img/rectangle3.jpg" alt="girl" class="tabs__img">
+							<p class="tabs__online offline"></p>
+							<p class="tabs__name">Tatyana, 27</p>
+							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
 
 
 
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">1</div>
-			<div class="col-lg-3">1</div>
-			<div class="col-lg-3">1</div>
-			<div class="col-lg-3">1</div>
+			<div class="col-lg-4">
+				
+				<ul class="footer__lists">
+					<li>In search of a boy</li>
+					<li><a href="#">Boy looking for a boy</a></li>
+					<li><a href="#">Girl looking for a boy</a></li>
+					<li><a href="#">Man looking for a boy</a></li>
+					<li><a href="#">Woman looking for a boy</a></li>
+					<li><a href="#">Couple looking for a boy</a></li>
+				</ul>
+
+			</div>
+			<div class="col-lg-4">
+
+				<ul class="footer__lists">
+					<li>In search of a girl</li>
+					<li><a href="#">Boy looking for a girl</a></li>
+					<li><a href="#">Girl looking for a girl</a></li>
+					<li><a href="#">Man looking for a girl</a></li>
+					<li><a href="#">Woman looking for a girl</a></li>
+					<li><a href="#">Couple looking for a girl</a></li>
+				</ul>
+
+			</div>
+			<div class="col-lg-4">
+
+				<ul class="footer__lists">
+					<li>In search of a man</li>
+					<li><a href="#">Boy looking for a man</a></li>
+					<li><a href="#">Girl looking for a man</a></li>
+					<li><a href="#">Man looking for a man</a></li>
+					<li><a href="#">Woman looking for a man</a></li>
+					<li><a href="#">Couple looking for a man</a></li>
+				</ul>
+
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 
 				<p class="footer__text1">© 2019 Cupids | All Rights Reserved</p>
-				<hr>
 				<p class="footer__text2">Disclaimer: Great efforts are made to maintain reliable data on all offers presented. However, this data is provided without warranty. Users should always check the offer provider’s official website for current terms and details. Our site receives compensation from many of the offers listed on the site. Along with key review factors, this compensation may impact how and where products appear across the site (including, for example, the order in which they appear). Our site does not include the entire universe of available offers. Editorial opinions expressed on the site are strictly our own and are not provided, endorsed, or approved by advertisers.</p>
 
 			</div>
@@ -281,7 +393,8 @@
 </footer>
 
 
-
+<!-- end #app -->
+</div>
 
 
 
@@ -289,7 +402,15 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+
+	<!-- vue -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- dev -->
+	<!-- production -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+	<script src="js/setsOfFunctions.js"></script>
 	<script src="js/common.js"></script>
+	<script src="js/vue-script.js"></script>
 
 </body>
 </html>
