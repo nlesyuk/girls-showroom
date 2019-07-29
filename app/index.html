@@ -55,7 +55,7 @@
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
 
-						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" key="item.index">
+						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" >
 							<img :src="item.avatar" alt="girl">
 							<span class="tooltiptext">{{ item.descr }}</span>
 						</a>
@@ -114,7 +114,7 @@
 					
 					<a :href="instagramDATA.link" class="insta__descr">
 						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
-						<p class="insta__text2"><span>Julia</span> Single hottie looking for a real man! Write to me! ❤</p>
+						<p class="insta__text2"><span>{{ instagramDATA.name }}</span> Single hottie looking for a real man! Write to me! ❤</p>
 					</a>
 
 				</div>
@@ -154,21 +154,36 @@
 				<div class="topactive__cont ">
 					<p class="topactive__title">Top Active Girls</p>
 					<ul class="topactive__items">
+
+						<!-- <li v-for="item in topActiveDATA" >
+							<ul class="topactive__social">
+								<li><a :href="item.link"><img src="img/fb.svg" alt=""></a></li>
+								<li><a :href="item.link"><img src="img/fbm.svg" alt=""></a></li>
+								<li><a :href="item.link"><img src="img/viber.png" alt=""></a></li>
+								<li><a :href="item.link"><img src="img/whatsapp.svg" alt=""></a></li>
+							</ul>
+							<img :src="item.avatar" alt="" class="topactive__photo">
+							<a :href="item.link" class="topactive__btn">Online</a>
+							<a :href="item.link" class="topactive__name">{{ item.name }}</a>
+						</li> -->
+
+<!-- 
 						<li>
 							<ul class="topactive__social">
-								<!-- <li><a href="#"><img src="img/fb.svg" alt=""></a></li> -->
+								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
 								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<!-- <li><a href="#"><img src="img/viber.png" alt=""></a></li> -->
-								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li class="hidden"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
 							<img src="img/rectangle1.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<a href="#" class="topactive__name">Ekaterina, 23</a>
 						</li>
+
 						<li>
 							<ul class="topactive__social">
 								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li class="hidden"><a href="#"><img src="img/fbm.svg" alt=""></a></li>
 								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
@@ -179,8 +194,8 @@
 						<li>
 							<ul class="topactive__social">
 								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<!-- <li><a href="#"><img src="img/fbm.svg" alt=""></a></li> -->
-								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<li class="hidden"><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
 							<img src="img/rectangle2.jpg" alt="" class="topactive__photo">
@@ -189,7 +204,7 @@
 						</li>
 						<li>
 							<ul class="topactive__social">
-								<!-- <li><a href="#"><img src="img/fb.svg" alt=""></a></li> -->
+								<li class="hidden"><a href="#"><img src="img/fb.svg" alt=""></a></li>
 								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
 								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
@@ -197,7 +212,7 @@
 							<img src="img/rectangle3.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<p class="topactive__name">Ekaterina, 23</p>
-						</li>
+						</li> -->
 
 					</ul>
 				</div>

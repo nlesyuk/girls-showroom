@@ -21,8 +21,8 @@
 							"https://picsum.photos/id/334/92/78",
 							"https://picsum.photos/id/374/92/78"
 					],
-					"name": "Julia",
-					"location": "Milan, Italy",
+					"name": "Nataly",
+					"location": "Rom, Italy",
 					"link": "https://google.com"
 				},
 				{
@@ -43,13 +43,47 @@
 
 	"top_active": [
 			{
-					"avatar": "https://picsum.photos/id/34/184/308",
-					"name": "Ekaterina, 23"
+					"avatar": "https://picsum.photos/id/204/184/308",
+					"name": "Ekaterina, 23",
+					"link": "https://google.com"
 			},
 			{
-					"avatar": "https://picsum.photos/id/34/184/308",
-					"name": "Ekaterina, 23"
+					"avatar": "https://picsum.photos/id/304/184/308",
+					"name": "Olya, 22",
+					"link": "https://google.com"
+			},
+			{
+					"avatar": "https://picsum.photos/id/174/184/308",
+					"name": "Marii, 21",
+					"link": "https://google.com"
+			},
+			{
+					"avatar": "https://picsum.photos/id/124/184/308",
+					"name": "Alexa, 25",
+					"link": "https://google.com"
+			},
+
+			{
+					"avatar": "https://picsum.photos/id/204/184/308",
+					"name": "Ekaterina, 231",
+					"link": "https://google.com"
+			},
+			{
+					"avatar": "https://picsum.photos/id/304/184/308",
+					"name": "Olya, 221",
+					"link": "https://google.com"
+			},
+			{
+					"avatar": "https://picsum.photos/id/174/184/308",
+					"name": "Marii, 211",
+					"link": "https://google.com"
+			},
+			{
+					"avatar": "https://picsum.photos/id/124/184/308",
+					"name": "Alexa, 251",
+					"link": "https://google.com"
 			}
+
 	],
 
 	"videos": [

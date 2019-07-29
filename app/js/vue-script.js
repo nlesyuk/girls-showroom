@@ -6,9 +6,9 @@ let vm = new Vue({
 			gey: true,
 			webcam: true
 		},
-		json: '' ,
 		topSliderDATA: '',
 		instagramDATA: '',
+		topActiveDATA: [],
 		owlInit: {
 			loop: true,
 			margin: 0,
@@ -47,14 +47,30 @@ let vm = new Vue({
 
 		separetaJSON(json){
 			console.log('json', json);
-			this.json = json;
+			// top slider
 			this.topSliderDATA = json.top_slider;
 			console.log('topSliders', this.topSliderDATA);
 			
-			var randIndex = Math.floor(Math.random() * json.instagram.length); 
+			// instagram
+			var randIndex = Math.floor(Math.random() * json.instagram.length);
 			this.instagramDATA = json.instagram[randIndex];
 			console.log('instagramDATA', this.instagramDATA);
+			
+			// top active
+/* 			for (var i = 0; i < json.top_active.length; i++){
 
+				var random = Math.floor(Math.random() * json.top_active.length);
+				var item = json.top_active[random];
+
+				if( this.topActiveDATA.indexOf(item) == -1 &&
+					this.topActiveDATA.length < 4
+				){
+					this.topActiveDATA.push(item);
+				}
+
+			}
+			console.log('topActiveDATA', this.topActiveDATA);
+ */
 		},
 		
 		topCarousel(){
