@@ -54,14 +54,12 @@
 
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
-						<a href="#" class="tooltip">
-							<img src="img/ava2.png" alt="girl">
-							<span class="tooltiptext">I'm Julia, 21 y.o.</span>
-						</a> 
-						<a href="#" class="tooltip">
-							<img src="img/ava2.png" alt="girl">
-							<span class="tooltiptext">I'm Maria, 21 y.o.</span>
-						</a> 
+
+						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" key="item.index">
+							<img :src="item.avatar" alt="girl">
+							<span class="tooltiptext">{{ item.descr }}</span>
+						</a>
+
 					</div>
 					<div class="carousel__more">
 						<p class="carousel__text"><span>+249</span>girls online</p>
@@ -81,40 +79,40 @@
 
 
 		<div class="row ">
-			<div class="col-lg-4 d-flex">
+			<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
 
 				<div class="insta__cont">
 
 					<div class="insta__top">
-						<a href="#" class="insta__ava">
+						<a :href="instagramDATA.link" class="insta__ava">
 							<img src="img/photo.jpg" alt="avatar">
 						</a>
-						<a href="#" class="insta__name">Julia <span>Milan, Italy</span></a>
-						<a href="#" class="insta__msg">message me!</a>
+						<a :href="instagramDATA.link" class="insta__name">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
+						<a :href="instagramDATA.link" class="insta__msg">message me!</a>
 					</div>
 
 					<div class="insta__imgs">
-						<a href="#" class="insta__big-photo">
-							<img src="img/photo.jpg" alt="">
+						<a :href="instagramDATA.link" class="insta__big-photo">
+							<img :src="instagramDATA.big" alt="girl">
 						</a>
 						<ul class="insta__collage">
-							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
-							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
-							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
-							<li><a href="#"><img src="img/photo-small.jpg" alt="girl"></a></li>
+							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[0]" alt="girl"></a></li>
+							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[1]" alt="girl"></a></li>
+							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[2]" alt="girl"></a></li>
+							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[3]" alt="girl"></a></li>
 						</ul>
 					</div>
 
 					<div class="insta__nav">
 						<ul class="insta__btns">
-							<li><a href="#"><img src="img/like.png" alt="like"></a></li>
-							<li><a href="#"><img src="img/comment.png" alt="like"></a></li>
-							<li><a href="#"><img src="img/shape.png" alt="like"></a></li>
-							<li><a href="#"><img src="img/collect.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link"><img src="img/like.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link"><img src="img/comment.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link"><img src="img/shape.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link"><img src="img/collect.png" alt="like"></a></li>
 						</ul>
 					</div>
 					
-					<a href="#" class="insta__descr">
+					<a :href="instagramDATA.link" class="insta__descr">
 						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
 						<p class="insta__text2"><span>Julia</span> Single hottie looking for a real man! Write to me! ❤</p>
 					</a>
@@ -122,7 +120,7 @@
 				</div>
 
 			</div>
-			<div class="col-lg-4 d-flex">
+			<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
 
 				<div class="maps__cont">
 					<h2 class="maps__subtitle">Girls nearby</h2>
@@ -151,19 +149,19 @@
 				</div>
 
 			</div>
-			<div class="col-lg-4 d-flex flex-column justify-content-between">
+			<div class="col-md-12 col-lg-4 d-flex flex-column justify-content-between">
 
 				<div class="topactive__cont ">
 					<p class="topactive__title">Top Active Girls</p>
 					<ul class="topactive__items">
 						<li>
 							<ul class="topactive__social">
-								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<!-- <li><a href="#"><img src="img/fb.svg" alt=""></a></li> -->
 								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
+								<!-- <li><a href="#"><img src="img/viber.png" alt=""></a></li> -->
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
-							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<img src="img/rectangle1.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<a href="#" class="topactive__name">Ekaterina, 23</a>
 						</li>
@@ -174,29 +172,29 @@
 								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
-							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<img src="img/rectangle1.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<p class="topactive__name">Ekaterina, 23</p>
 						</li>
 						<li>
 							<ul class="topactive__social">
 								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
+								<!-- <li><a href="#"><img src="img/fbm.svg" alt=""></a></li> -->
 								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
-							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<img src="img/rectangle2.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<p class="topactive__name">Ekaterina, 23</p>
 						</li>
 						<li>
 							<ul class="topactive__social">
-								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
+								<!-- <li><a href="#"><img src="img/fb.svg" alt=""></a></li> -->
 								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
 								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
 								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
 							</ul>
-							<img src="img/rectangle.jpg" alt="" class="topactive__photo">
+							<img src="img/rectangle3.jpg" alt="" class="topactive__photo">
 							<a href="#" class="topactive__btn">Online</a>
 							<p class="topactive__name">Ekaterina, 23</p>
 						</li>
@@ -204,18 +202,19 @@
 					</ul>
 				</div>
 
-					<!-- https://github.com/sampotts/plyr -->
+				<!-- https://github.com/sampotts/plyr -->
 				<div class="video__cont align-self-end ">
-					<div class="plyr__video-embed">
+					<div class="plyr__video-embed" >
 
-						<video controls="" crossorigin="" playsinline="" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+						<video id="player" 
+							controls="false" crossorigin="" playsinline="" 
+							poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
 							
-							<!-- Video files -->
 							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
-							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720"> -->
-							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080"> -->
 						
 						</video>
+						
+
 					</div>
 				</div>
 
@@ -235,7 +234,6 @@
 							<select name="iam" id="iam">
 								<option value="male">I'm Male</option>
 								<option value="fmail">I'm Female</option>
-								<option value="couple">We're Couple</option>
 							</select>
 						</div>
 						<p class="filter__text1">looking for</p>
@@ -257,12 +255,11 @@
 	</div>
 </main>
 
-
-
-<section id="tabs">
+<section id="tabs-nav">
 	<div class="container">
+
 		<div class="row">
-			<div class="col-lg-10">
+			<div class="col-9 col-lg-10">
 
 				<ul class="tabs__nav">
 					<li><button id="sex"
@@ -283,7 +280,7 @@
 				</ul>
 				
 			</div>
-			<div class="col-lg-2">
+			<div class="col-3 col-lg-2">
 
 				<ul class="tabs__control">
 					<li><button class="owl_sex prev"> &nbsp; </button></li>
@@ -291,7 +288,14 @@
 				</ul>
 				
 			</div>
-		</div>	
+		</div>
+
+	</div>
+</section>
+
+<section id="tabs">
+	<div class="container">
+
 		<div class="row">
 			<div class="col">
 
@@ -413,13 +417,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 
 	<!-- vue -->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- dev -->
+	<!-- dev -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<!-- production -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
 	<script src="libs/video-js/plyr.min.js"></script>
-	<script src="js/setsOfFunctions.js"></script>
-	<script src="js/common.js"></script>
+	
+	<!-- <script src="js/common.js"></script> -->
 	<script src="js/vue-script.js"></script>
 
 </body>
