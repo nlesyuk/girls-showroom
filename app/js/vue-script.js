@@ -182,8 +182,21 @@ let vm = new Vue({
 
 			var map = new mapboxgl.Map({
 				container: 'mapBox',
-				style: 'mapbox://styles/na3ar1y/cjyq06c1y1my31cpit9snzpsi'
+				style: 'mapbox://styles/na3ar1y/cjyq06c1y1my31cpit9snzpsi',
+				center: [-96, 37.8],
+				zoom: 10
 			});
+
+
+			// https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+			// Add geolocate control to the map.
+			map.addControl(new mapboxgl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: true
+			}));
+
 
 		}
 		
