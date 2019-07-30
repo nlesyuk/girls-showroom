@@ -175,6 +175,16 @@ let vm = new Vue({
 			var newlink = this.filterDATA[value];
 			console.log('newlink', newlink);
 			window.location = newlink;
+		},
+
+		initialMap(){
+			mapboxgl.accessToken = 'pk.eyJ1IjoibmEzYXIxeSIsImEiOiJjanloM29tenQwNzRtM2hwYWw4emUyaXhlIn0.PuWkJSZ5w1Ijq-surIhTsw';
+
+			var map = new mapboxgl.Map({
+				container: 'mapBox',
+				style: 'mapbox://styles/na3ar1y/cjyq06c1y1my31cpit9snzpsi'
+			});
+
 		}
 		
 	},
@@ -187,6 +197,7 @@ let vm = new Vue({
 		this.getJSON(urlLocal, this.separetaJSON);
 
 		this.initialVideo();
+		this.initialMap();
 
 		this.$nextTick(function () {
 			// Код, который будет запущен только после
@@ -203,6 +214,7 @@ let vm = new Vue({
 				self.topCarousel();
 			}, 1000);
 		})
-				
+		
+
 	}
 });
