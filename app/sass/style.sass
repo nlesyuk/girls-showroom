@@ -312,7 +312,7 @@ main
 	width: 100%
 	height: auto
 	overflow: hidden
-	min-height: 60px
+	min-height: 234px
 	border-radius: 8px
 	padding: 20px 12px
 	background: white
@@ -399,6 +399,11 @@ main
 	video
 		display: block
 		max-width: 100%
+		filter: blur(4px)
+		transition: all .25s
+		&:hover
+			filter: blur(0px)
+			transition: all .25s
 
 
 // FILTER

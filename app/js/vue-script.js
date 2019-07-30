@@ -9,6 +9,7 @@ let vm = new Vue({
 		topSliderDATA: '',
 		instagramDATA: '',
 		topActiveDATA: [],
+		filterDATA: [],
 		owlInit: {
 			loop: true,
 			margin: 0,
@@ -26,26 +27,31 @@ let vm = new Vue({
 	},
 	methods: {
 
-		activateTab(value){
+		activateTab(value) {
 			for(let i in this.isActiveTabs) this.isActiveTabs[i] = false;
 			this.isActiveTabs[value] = true;
 		},
 
-		getJSON(url, callback){
+		getJSON(url, callback) {
  			var req = new XMLHttpRequest();
 			// req.responseType = 'json'; // not support in IE11
 			req.overrideMimeType("application/json");
 			req.open('GET', url, true);
 			req.onload  = function() { // запрос завершился
 				var result = JSON.parse(req.responseText);
-				console.log(result);
+
+				if ( req.responseText.length == 0 ) {
+					console.error(" AJAX Error");
+				}
+
+				console.log("result", result);
 				callback(result);
 			};
 			req.send(null);
 
 		},
 
-		separetaJSON(json){
+		separetaJSON(json) {
 			console.log('json', json);
 			// top slider
 			this.topSliderDATA = json.top_slider;
@@ -56,24 +62,32 @@ let vm = new Vue({
 			this.instagramDATA = json.instagram[randIndex];
 			console.log('instagramDATA', this.instagramDATA);
 			
+			// maps
+			
 			// top active
-/* 			for (var i = 0; i < json.top_active.length; i++){
-
+			for (var i = 0; i < json.top_active.length; i++) {
 				var random = Math.floor(Math.random() * json.top_active.length);
 				var item = json.top_active[random];
-
-				if( this.topActiveDATA.indexOf(item) == -1 &&
-					this.topActiveDATA.length < 4
+				
+				if( this.topActiveDATA.indexOf(item) === -1 &&
+				this.topActiveDATA.length < 4 
 				){
 					this.topActiveDATA.push(item);
 				}
-
 			}
 			console.log('topActiveDATA', this.topActiveDATA);
- */
+			
+			// video
+			// filter
+			// sliders
+			
+			// footer
+			this.filterDATA = json.footer;
+			console.log('filterDATA', this.filterDATA);
+
 		},
 		
-		topCarousel(){
+		topCarousel() {
 			$("#carousel").owlCarousel({
 				loop: true,
 				margin: 0,
@@ -89,7 +103,7 @@ let vm = new Vue({
 			});
 		},
 		
-		owl_sex(){
+		owl_sex() {
 			$("#owl_sex").owlCarousel(this.owlInit);
 			var owl = $('#owl_sex');
 			$('.owl_sex.prev').click(function() {
@@ -100,7 +114,7 @@ let vm = new Vue({
 			});
 		},
 		
-		owl_gey(){
+		owl_gey() {
 			$("#owl_gey").owlCarousel(this.owlInit);
 			var owl = $('#owl_gey');
 			$('.owl_sex.prev').click(function() {
@@ -111,7 +125,7 @@ let vm = new Vue({
 			});
 		},
 		
-		owl_webcam(){
+		owl_webcam() {
 			$("#owl_webcam").owlCarousel(this.owlInit);
 			var owl = $('#owl_webcam');
 			$('.owl_sex.prev').click(function() {
@@ -128,11 +142,13 @@ let vm = new Vue({
 		// activate the tabs area
 		setTimeout(()=>{ this.activateTab('sex') }, 500);
 		
-		this.getJSON("http://localhost:3000/data.json", this.separetaJSON);
-	
+		
 	},
 	mounted(){
 		
+		// this.getJSON("http://192.168.0.104:3000/data.json", this.separetaJSON);
+		this.getJSON("http://pronazvo.beget.tech/CORS/", this.separetaJSON);
+
 		setTimeout(()=>{ 
 			this.topCarousel();
 		}, 500);

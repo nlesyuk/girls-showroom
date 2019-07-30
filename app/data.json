@@ -14,28 +14,28 @@
 
 	"instagram": [
 			{
-					"big": "https://picsum.photos/id/34/300/306",
-					"smals": [
-							"https://picsum.photos/id/314/92/78",
-							"https://picsum.photos/id/334/92/78",
-							"https://picsum.photos/id/334/92/78",
-							"https://picsum.photos/id/374/92/78"
-					],
-					"name": "Nataly",
-					"location": "Rom, Italy",
-					"link": "https://google.com"
-				},
-				{
-					"big": "https://picsum.photos/id/34/300/306",
-					"smals": [
-						"https://picsum.photos/id/341/92/78",
-						"https://picsum.photos/id/342/92/78",
-						"https://picsum.photos/id/343/92/78",
-						"https://picsum.photos/id/344/92/78"
-					],
-					"name": "Julia",
-					"location": "Milan, Italy",
-					"link": "https://google.com"
+				"big": "https://picsum.photos/id/34/300/306",
+				"smals": [
+						"https://picsum.photos/id/314/92/78",
+						"https://picsum.photos/id/334/92/78",
+						"https://picsum.photos/id/334/92/78",
+						"https://picsum.photos/id/374/92/78"
+				],
+				"name": "Nataly",
+				"location": "Rom, Italy",
+				"link": "https://google.com"
+			},
+			{
+				"big": "https://picsum.photos/id/34/300/306",
+				"smals": [
+					"https://picsum.photos/id/341/92/78",
+					"https://picsum.photos/id/342/92/78",
+					"https://picsum.photos/id/343/92/78",
+					"https://picsum.photos/id/344/92/78"
+				],
+				"name": "Julia",
+				"location": "Milan, Italy",
+				"link": "https://google.com"
 			}
 	],
 
@@ -64,41 +64,40 @@
 			},
 
 			{
-					"avatar": "https://picsum.photos/id/204/184/308",
-					"name": "Ekaterina, 231",
+					"avatar": "https://picsum.photos/id/214/184/308",
+					"name": "Ekaterina, 18",
 					"link": "https://google.com"
 			},
 			{
-					"avatar": "https://picsum.photos/id/304/184/308",
-					"name": "Olya, 221",
+					"avatar": "https://picsum.photos/id/314/184/308",
+					"name": "Olya, 33",
 					"link": "https://google.com"
 			},
 			{
-					"avatar": "https://picsum.photos/id/174/184/308",
-					"name": "Marii, 211",
+					"avatar": "https://picsum.photos/id/184/184/308",
+					"name": "Marii, 27",
 					"link": "https://google.com"
 			},
 			{
-					"avatar": "https://picsum.photos/id/124/184/308",
-					"name": "Alexa, 251",
+					"avatar": "https://picsum.photos/id/134/184/308",
+					"name": "Alexa, 28",
 					"link": "https://google.com"
 			}
-
 	],
 
 	"videos": [
-			"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
-			"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
-			"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
+		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
+		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
 	],
 
 	"filter": {
-			"m-m": "https://www.youtube.com/watch?v=2jqok-WgelI",
-			"m-f": "https://www.youtube.com/watch?v=2jqok-WgelI",
-			"m-c": "https://www.youtube.com/watch?v=2jqok-WgelI",
-			"f-m": "https://www.youtube.com/watch?v=2jqok-WgelI",
-			"f-f": "https://www.youtube.com/watch?v=2jqok-WgelI",
-			"f-c": "https://www.youtube.com/watch?v=2jqok-WgelI"
+		"m-m": "https://www.youtube.com/watch?v=2jqok-WgelI",
+		"m-f": "https://www.youtube.com/watch?v=2jqok-WgelI",
+		"m-c": "https://www.youtube.com/watch?v=2jqok-WgelI",
+		"f-m": "https://www.youtube.com/watch?v=2jqok-WgelI",
+		"f-f": "https://www.youtube.com/watch?v=2jqok-WgelI",
+		"f-c": "https://www.youtube.com/watch?v=2jqok-WgelI"
 	},
 
 	"tabs": {
@@ -147,27 +146,27 @@
 	},
 
 	"footer": {
-		"looking-a-boy": [
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI"
-		],
-		"looking-a-girl": [
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI"
-		],
-		"looking-a-man": [
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI",
-				"https://www.youtube.com/watch?v=2jqok-WgelI"
-		]
+		"Boy": {
+			"boy": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"girl": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"man": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"woman": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"couple": "https://www.youtube.com/watch?v=2jqok-WgelI"
+		},
+		"Girl": {
+			"boy": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"girl": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"man": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"woman": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"couple": "https://www.youtube.com/watch?v=2jqok-WgelI"
+		},
+		"Man": {
+			"boy": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"girl": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"man": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"woman": "https://www.youtube.com/watch?v=2jqok-WgelI",
+			"couple": "https://www.youtube.com/watch?v=2jqok-WgelI"
+		}
 	}
 
 }

@@ -96,10 +96,9 @@
 							<img :src="instagramDATA.big" alt="girl">
 						</a>
 						<ul class="insta__collage">
-							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[0]" alt="girl"></a></li>
-							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[1]" alt="girl"></a></li>
-							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[2]" alt="girl"></a></li>
-							<li><a :href="instagramDATA.link"><img :src="instagramDATA.smals[3]" alt="girl"></a></li>
+							<li v-for="item in instagramDATA.smals">
+								<a :href="instagramDATA.link"><img :src="item" alt="girl"></a>
+							</li>
 						</ul>
 					</div>
 
@@ -155,64 +154,19 @@
 					<p class="topactive__title">Top Active Girls</p>
 					<ul class="topactive__items">
 
-						<!-- <li v-for="item in topActiveDATA" >
+						<li v-for="item in topActiveDATA" >
 							<ul class="topactive__social">
-								<li><a :href="item.link"><img src="img/fb.svg" alt=""></a></li>
-								<li><a :href="item.link"><img src="img/fbm.svg" alt=""></a></li>
-								<li><a :href="item.link"><img src="img/viber.png" alt=""></a></li>
-								<li><a :href="item.link"><img src="img/whatsapp.svg" alt=""></a></li>
+								<li><a :href="item.link"><img src="img/fb.svg" alt="social icon"></a></li>
+								<li><a :href="item.link"><img src="img/fbm.svg" alt="social icon"></a></li>
+								<li><a :href="item.link"><img src="img/viber.png" alt="social icon"></a></li>
+								<li><a :href="item.link"><img src="img/whatsapp.svg" alt="social icon"></a></li>
 							</ul>
-							<img :src="item.avatar" alt="" class="topactive__photo">
+							<a :href="item.link">
+								<img :src="item.avatar" alt="images" class="topactive__photo">
+							</a>
 							<a :href="item.link" class="topactive__btn">Online</a>
 							<a :href="item.link" class="topactive__name">{{ item.name }}</a>
-						</li> -->
-
-<!-- 
-						<li>
-							<ul class="topactive__social">
-								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
-								<li class="hidden"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
-							</ul>
-							<img src="img/rectangle1.jpg" alt="" class="topactive__photo">
-							<a href="#" class="topactive__btn">Online</a>
-							<a href="#" class="topactive__name">Ekaterina, 23</a>
 						</li>
-
-						<li>
-							<ul class="topactive__social">
-								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li class="hidden"><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
-								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
-							</ul>
-							<img src="img/rectangle1.jpg" alt="" class="topactive__photo">
-							<a href="#" class="topactive__btn">Online</a>
-							<p class="topactive__name">Ekaterina, 23</p>
-						</li>
-						<li>
-							<ul class="topactive__social">
-								<li><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<li class="hidden"><a href="#"><img src="img/viber.png" alt=""></a></li>
-								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
-							</ul>
-							<img src="img/rectangle2.jpg" alt="" class="topactive__photo">
-							<a href="#" class="topactive__btn">Online</a>
-							<p class="topactive__name">Ekaterina, 23</p>
-						</li>
-						<li>
-							<ul class="topactive__social">
-								<li class="hidden"><a href="#"><img src="img/fb.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/fbm.svg" alt=""></a></li>
-								<li><a href="#"><img src="img/viber.png" alt=""></a></li>
-								<li><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
-							</ul>
-							<img src="img/rectangle3.jpg" alt="" class="topactive__photo">
-							<a href="#" class="topactive__btn">Online</a>
-							<p class="topactive__name">Ekaterina, 23</p>
-						</li> -->
 
 					</ul>
 				</div>
@@ -221,11 +175,10 @@
 				<div class="video__cont align-self-end ">
 					<div class="plyr__video-embed" >
 
-						<video id="player" 
-							controls="false" crossorigin="" playsinline="" 
-							poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+						<video id="player" controls="false" crossorigin="" playsinline="" poster="videos/1.jpg">
 							
-							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
+							<source src="videos/1.mp4" type="video/mp4" size="576">
 						
 						</video>
 						
@@ -378,23 +331,15 @@
 				
 				<ul class="footer__lists">
 					<li>In search of a boy</li>
-					<li><a href="#">Boy looking for a boy</a></li>
-					<li><a href="#">Girl looking for a boy</a></li>
-					<li><a href="#">Man looking for a boy</a></li>
-					<li><a href="#">Woman looking for a boy</a></li>
-					<li><a href="#">Couple looking for a boy</a></li>
+					<li v-for="(item, index) in filterDATA.Boy"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a></li>
 				</ul>
-
+				
 			</div>
 			<div class="col-md-4">
 
 				<ul class="footer__lists">
 					<li>In search of a girl</li>
-					<li><a href="#">Boy looking for a girl</a></li>
-					<li><a href="#">Girl looking for a girl</a></li>
-					<li><a href="#">Man looking for a girl</a></li>
-					<li><a href="#">Woman looking for a girl</a></li>
-					<li><a href="#">Couple looking for a girl</a></li>
+					<li v-for="(item, index) in filterDATA.Girl"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a></li>
 				</ul>
 
 			</div>
@@ -402,11 +347,7 @@
 
 				<ul class="footer__lists last">
 					<li>In search of a man</li>
-					<li><a href="#">Boy looking for a man</a></li>
-					<li><a href="#">Girl looking for a man</a></li>
-					<li><a href="#">Man looking for a man</a></li>
-					<li><a href="#">Woman looking for a man</a></li>
-					<li><a href="#">Couple looking for a man</a></li>
+					<li v-for="(item, index) in filterDATA.Man"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a></li>
 				</ul>
 
 			</div>
