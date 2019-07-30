@@ -8,8 +8,12 @@ let vm = new Vue({
 		},
 		topSliderDATA: '',
 		instagramDATA: '',
-		topActiveDATA: [],
-		filterDATA: [],
+		topActiveDATA: '',
+		filterDATA: '',
+		tabsDATA: '',
+		footerDATA: '',
+		filterIam: '',
+		filterLooking: '',
 		owlInit: {
 			loop: true,
 			margin: 0,
@@ -79,11 +83,16 @@ let vm = new Vue({
 			
 			// video
 			// filter
-			// sliders
+			this.tabsDATA = json.tabs;
+			console.log('tabsDATA', this.tabsDATA);
+
+			// tabs
+			this.tabsDATA = json.tabs;
+			console.log('tabsDATA', this.tabsDATA);
 			
 			// footer
-			this.filterDATA = json.footer;
-			console.log('filterDATA', this.filterDATA);
+			this.footerDATA = json.footer;
+			console.log('footerDATA', this.tabsDATA);
 
 		},
 		
@@ -134,14 +143,43 @@ let vm = new Vue({
 			$('.owl_sex.next').click(function() {
 				owl.trigger('next.owl.carousel', [250]);
 			});
+		},
+
+
+		randomNum() {
+			return Math.floor(Math.random() * 10)
+		},
+
+		initialVideo() {
+			const player = new Plyr('#player', {
+				title: 'Example Title',
+				controls: [],
+				muted: true,
+				loop: { active: true }
+			});
+
+			var playerCont = document.querySelector(".video__cont");
+			playerCont.addEventListener("mouseover", function(){
+				player.play();
+				player.style.filter = "blur(0px)"
+			});
+			playerCont.addEventListener("mouseleave", function(){
+				player.pause();
+				player.style.filter = "blur(0px)"
+			});
+		},
+
+		filterRedirect(iam, looking) {
+			var iam
 		}
 		
 	},
 	beforeMount(){
 		
 		// activate the tabs area
-		setTimeout(()=>{ this.activateTab('sex') }, 500);
 		
+
+
 		
 	},
 	mounted(){
@@ -151,10 +189,12 @@ let vm = new Vue({
 
 		setTimeout(()=>{ 
 			this.topCarousel();
+			this.owl_sex();
+			this.owl_gey();
+			this.owl_webcam();
 		}, 500);
-		/* this.owl_sex();
-		this.owl_gey();
-		this.owl_webcam(); */
+		setTimeout(()=>{ this.activateTab('sex') }, 500);
 		
+		this.initialVideo();
 	}
 });

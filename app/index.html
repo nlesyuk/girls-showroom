@@ -156,10 +156,10 @@
 
 						<li v-for="item in topActiveDATA" >
 							<ul class="topactive__social">
-								<li><a :href="item.link"><img src="img/fb.svg" alt="social icon"></a></li>
-								<li><a :href="item.link"><img src="img/fbm.svg" alt="social icon"></a></li>
-								<li><a :href="item.link"><img src="img/viber.png" alt="social icon"></a></li>
-								<li><a :href="item.link"><img src="img/whatsapp.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': false }"><a :href="item.link" ><img src="img/fb.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': randomNum() >= 5}"><a :href="item.link"><img src="img/fbm.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': false}"><a :href="item.link"><img src="img/viber.png" alt="social icon"></a></li>
+								<li :class="{'hidden': randomNum() < 5}"><a :href="item.link"><img src="img/whatsapp.svg" alt="social icon"></a></li>
 							</ul>
 							<a :href="item.link">
 								<img :src="item.avatar" alt="images" class="topactive__photo">
@@ -172,19 +172,20 @@
 				</div>
 
 				<!-- https://github.com/sampotts/plyr -->
-				<div class="video__cont align-self-end ">
+				<a href="https://google.com" class="video__cont align-self-end ">
 					<div class="plyr__video-embed" >
 
-						<video id="player" controls="false" crossorigin="" playsinline="" poster="videos/1.jpg">
+						<!-- <video id="player" poster="videos/1.jpg"> -->
+						<video id="player">
 							
 							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
-							<source src="videos/1.mp4" type="video/mp4" size="576">
+							<source src="videos/1.mp4" type="video/mp4" size="720">
 						
 						</video>
 						
 
 					</div>
-				</div>
+				</a>
 
 			</div>
 		</div>
@@ -199,20 +200,20 @@
 
 					<form action="" class="filter__form">
 						<div class="filter__selectcont">
-							<select name="iam" id="iam">
+							<select name="iam" id="iam" :value="filterIam">
 								<option value="male">I'm Male</option>
 								<option value="fmail">I'm Female</option>
 							</select>
 						</div>
 						<p class="filter__text1">looking for</p>
 						<div class="filter__selectcont">
-							<select name="lookinFor" id="lookinFor">
+							<select name="lookinFor" id="lookinFor"  :value="filterLooking">
 								<option value="male">Male</option>
 								<option value="fmail">Female</option>
 								<option value="couple">Couple</option>
 							</select>
 						</div>
-						<button type="submit">Search</button>
+						<button type="button" id="filter__btn" @click="filterRedirect(iam, looking)">Search</button>
 					</form>
 
 				</div>
@@ -270,48 +271,36 @@
 				<div class="tabs__cont">
 
 					<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle1.jpg" alt="girl" class="tabs__img">
+
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex">
+							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
-							<p class="tabs__name">Tatyana, 27</p>
-							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+							<p class="tabs__name">{{ item.name }}</p>
+							<p class="tabs__descr">{{ item.descr }}</p>
 						</a>
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle1.jpg" alt="girl" class="tabs__img">
-							<p class="tabs__online offline"></p>
-							<p class="tabs__name">Tatyana, 27</p>
-							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
-						</a>
+
 					</div>
 
 					<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle2.jpg" alt="girl" class="tabs__img">
+
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey">
+							<img :src="item.photo" alt="gey" class="tabs__img">
 							<p class="tabs__online"></p>
-							<p class="tabs__name">Tatyana, 31</p>
-							<p class="tabs__descr">Wanna !</p>
+							<p class="tabs__name">{{ item.name }}</p>
+							<p class="tabs__descr">{{ item.descr }}</p>
 						</a>
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle2.jpg" alt="girl" class="tabs__img">
-							<p class="tabs__online offline"></p>
-							<p class="tabs__name">Tatyana, 47</p>
-							<p class="tabs__descr">Wanna try edgeplay !</p>
-						</a>
+
 					</div>
 
 					<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle3.jpg" alt="girl" class="tabs__img">
+
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam">
+							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
-							<p class="tabs__name">Tatyana, 27</p>
-							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
+							<p class="tabs__name">{{ item.name }}</p>
+							<p class="tabs__descr">{{ item.descr }}</p>
 						</a>
-						<a href="#" class="tabs__item">
-							<img src="img/rectangle3.jpg" alt="girl" class="tabs__img">
-							<p class="tabs__online offline"></p>
-							<p class="tabs__name">Tatyana, 27</p>
-							<p class="tabs__descr">Wanna try edgeplay to get adrenaline rush? I can make you be pleased!</p>
-						</a>
+
 					</div>
 
 				</div>
@@ -331,7 +320,7 @@
 				
 				<ul class="footer__lists">
 					<li>In search of a boy</li>
-					<li v-for="(item, index) in filterDATA.Boy"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a></li>
+					<li v-for="(item, index) in footerDATA.Boy"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a></li>
 				</ul>
 				
 			</div>
@@ -339,7 +328,7 @@
 
 				<ul class="footer__lists">
 					<li>In search of a girl</li>
-					<li v-for="(item, index) in filterDATA.Girl"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a></li>
+					<li v-for="(item, index) in footerDATA.Girl"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a></li>
 				</ul>
 
 			</div>
@@ -347,7 +336,7 @@
 
 				<ul class="footer__lists last">
 					<li>In search of a man</li>
-					<li v-for="(item, index) in filterDATA.Man"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a></li>
+					<li v-for="(item, index) in footerDATA.Man"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a></li>
 				</ul>
 
 			</div>

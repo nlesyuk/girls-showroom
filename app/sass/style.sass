@@ -388,6 +388,7 @@ main
 
 // Video
 .video__cont
+	display: block
 	width: 100%
 	height: auto
 	overflow: hidden
@@ -396,14 +397,14 @@ main
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
 	.plyr__video-embed
 		display: block
-	video
-		display: block
-		max-width: 100%
 		filter: blur(4px)
 		transition: all .25s
 		&:hover
 			filter: blur(0px)
 			transition: all .25s
+	video
+		display: block
+		max-width: 100%
 
 
 // FILTER
@@ -412,6 +413,7 @@ main
 	height: auto
 	padding: 32px 30px
 	margin: 40px 0 92px 0
+	margin: 40px 0 
 	border-radius: 8px
 	background-image: linear-gradient(96deg, #f4006b, #8f138e)
 	display: flex
