@@ -7,13 +7,14 @@ let vm = new Vue({
 			webcam: true
 		},
 		topSliderDATA: '',
-		instagramDATA: '',
-		topActiveDATA: '',
+		instagramDATA: [],
+		topActiveDATA: [],
+		videoDATA: '',
 		filterDATA: '',
-		tabsDATA: '',
-		footerDATA: '',
 		filterIam: '',
 		filterLooking: '',
+		tabsDATA: '',
+		footerDATA: '',
 		owlInit: {
 			loop: true,
 			margin: 0,
@@ -82,9 +83,12 @@ let vm = new Vue({
 			console.log('topActiveDATA', this.topActiveDATA);
 			
 			// video
+			this.videoDATA = json.videos;
+			console.log('videoDATA', this.videoDATA);
+
 			// filter
-			this.tabsDATA = json.tabs;
-			console.log('tabsDATA', this.tabsDATA);
+			this.filterDATA = json.filter;
+			console.log('filterDATA', this.filterDATA);
 
 			// tabs
 			this.tabsDATA = json.tabs;
@@ -145,7 +149,6 @@ let vm = new Vue({
 			});
 		},
 
-
 		randomNum() {
 			return Math.floor(Math.random() * 10)
 		},
@@ -161,40 +164,45 @@ let vm = new Vue({
 			var playerCont = document.querySelector(".video__cont");
 			playerCont.addEventListener("mouseover", function(){
 				player.play();
-				player.style.filter = "blur(0px)"
 			});
 			playerCont.addEventListener("mouseleave", function(){
 				player.pause();
-				player.style.filter = "blur(0px)"
 			});
 		},
 
-		filterRedirect(iam, looking) {
-			var iam
+		filterRedirect() {
+			var value = this.filterIam + "-" + this.filterLooking;
+			var newlink = this.filterDATA[value];
+			console.log('newlink', newlink);
+			window.location = newlink;
 		}
 		
 	},
-	beforeMount(){
-		
-		// activate the tabs area
-		
-
-
-		
-	},
+	beforeMount(){},
 	mounted(){
 		
-		// this.getJSON("http://192.168.0.104:3000/data.json", this.separetaJSON);
-		this.getJSON("http://pronazvo.beget.tech/CORS/", this.separetaJSON);
+		var url = window.location.href + "php/";
+		var urlLocal = window.location.href + "php/data.json";
+		// this.getJSON(url, this.separetaJSON);
+		this.getJSON(urlLocal, this.separetaJSON);
 
-		setTimeout(()=>{ 
-			this.topCarousel();
-			this.owl_sex();
-			this.owl_gey();
-			this.owl_webcam();
-		}, 500);
-		setTimeout(()=>{ this.activateTab('sex') }, 500);
-		
 		this.initialVideo();
+
+		this.$nextTick(function () {
+			// Код, который будет запущен только после
+			// отображения всех представлений
+			var self = this;
+			setTimeout(()=>{ 
+				this.owl_sex();
+				this.owl_gey();
+				this.owl_webcam();
+				this.activateTab('sex') 
+			}, 1200);
+
+			setTimeout(function(){
+				self.topCarousel();
+			}, 1000);
+		})
+				
 	}
 });
