@@ -142,7 +142,7 @@ main
 		visibility: visible
 		// display: block
 		opacity: 1
-	
+
 
 // MIDDLE
 .title
@@ -299,16 +299,99 @@ main
 	border-radius: 8px
 	background: white
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
+	position: relative
 	.maps__subtitle
 		font: bold 1rem/1 $font
 		padding: 20px
 		color: $black
+	.maps__girls
+		// display: none
+		background: transparent
+		width: 100%
+		height: calc(100% - 56px)
+		// background: red
+		position: absolute
+		top: 56px
+		z-index: 2
+		li
+			display: block
+			width: 52px
+			max-width: 100%
+			height: 52px
+			padding: 4px
+			border-radius: 50%
+			background: $pink
+			text-decoration: none
+			position: absolute
+			top: 0
+			z-index: 2
+			transition: all .25s
+			&:hover
+				background: #d834d7
+				transition: all .25s
+				&:after
+					background: #d834d7
+					transition: all .25s
+			&:nth-child(1)
+				top: 10%
+				left: 30%
+			&:nth-child(2)
+				// top: 15%
+				// left: 70%
+				top: 50%
+				right: 5%
+			&:nth-child(3)
+				top: 40%
+				left: 10%
+			&:nth-child(4)
+				top: 70%
+				left: 10%
+			&:nth-child(5)
+				// top: 50%
+				// right: 5%
+				top: 15%
+				left: 70%
+			&:nth-child(6)
+				top: 60%
+				right: 40%
+			&:nth-child(7)
+				top: 80%
+				right: 10%
+			&:after
+				content: ""
+				width: 10px
+				height: 8px
+				clip-path: polygon(50% 100%, 0 0, 100% 0%)
+				background: $pink
+				position: absolute
+				bottom: -7px
+				left: calc(50% - 5px )
+			a 
+				text-decoration: none 
+				display: flex
+				width: 100%
+				height: 100%
+				align-items: center
+				justify-content: center
+			img
+				display: block
+				max-width: 100%
+				border-radius: 50%
+			span
+				display: block
+				font: bold 1.125rem/1 $font
+				text-align: center
+				color: white
+
 	.maps__code
 		display: block
 		width: 100%
 		height: 100%
 		min-height: 404px
-		background: $darkBlue
+		// background: $darkBlue
+		background: transparent
+		position: relative
+
 
 // TOP Active
 .topactive__cont
@@ -400,15 +483,21 @@ main
 	box-shadow: 0 8px 16px 0 rgba(20, 48, 102, 0.1)
 	.plyr__video-embed
 		display: block
-		filter: blur(4px)
 		transition: all .25s
 		&:hover
 			filter: blur(0px)
 			transition: all .25s
+		.plyr__video-wrapper
+			filter: blur(4px)
+			&:hover
+				filter: blur(0px)
+		.plyr__control--overlaid
+			background: #ee016d69 !important
+
 	video
 		display: block
 		max-width: 100%
-
+	
 
 // FILTER
 .filter__cont
@@ -764,7 +853,6 @@ footer
 
 // sm
 @media (max-width: 768.98px)
-
 	// TOP Active
 	.topactive__cont
 		width: 392px
@@ -774,6 +862,7 @@ footer
 		padding: 20px 12px
 		margin-bottom: 20px
 
+	
 	// FILTER
 	.filter__cont
 		margin: 40px 0 92px 0
@@ -799,9 +888,6 @@ footer
 
 // xs
 @media (max-width: 576.98px)
-
-
-
 	// TOP Active
 	.topactive__cont
 		width: 392px
@@ -902,7 +988,6 @@ footer
 						margin: 2px 0 4px 0
 					.tabs__descr
 						font: .65rem/1.4 $font
-
 
 	
 	footer

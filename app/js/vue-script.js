@@ -9,6 +9,7 @@ let vm = new Vue({
 		topSliderDATA: '',
 		instagramDATA: [],
 		topActiveDATA: [],
+		mapsDATA: '',
 		videoDATA: '',
 		filterDATA: '',
 		filterIam: '',
@@ -68,7 +69,15 @@ let vm = new Vue({
 			console.log('instagramDATA', this.instagramDATA);
 			
 			// maps
-			
+			this.mapsDATA = json.maps;
+			this.userIP = this.mapsDATA.user_ip.split(",");
+			var test = typeof(this.mapsDATA.user_ip);
+			// console.dir('IP - all', typeof(this.mapsDATA.user_ip) );
+			console.log('IP-1', test );
+			console.log('IP', this.userIP );
+
+			// this.getUserLocation(this.userIP);
+
 			// top active
 			for (var i = 0; i < json.top_active.length; i++) {
 				var random = Math.floor(Math.random() * json.top_active.length);
@@ -156,7 +165,8 @@ let vm = new Vue({
 		initialVideo() {
 			const player = new Plyr('#player', {
 				title: 'Example Title',
-				controls: [],
+				// controls: [],
+				controls: ['play-large', 'play', 'progress', 'current-time1', 'volume', 'captions', ],
 				muted: true,
 				loop: { active: true }
 			});
@@ -177,37 +187,58 @@ let vm = new Vue({
 			window.location = newlink;
 		},
 
-		initialMap(){
+		initialMap(arrLocations){
+			var location = ( arrLocations != undefined) ? arrLocations : [30.455, 50.414] ;
+			
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmEzYXIxeSIsImEiOiJjanloM29tenQwNzRtM2hwYWw4emUyaXhlIn0.PuWkJSZ5w1Ijq-surIhTsw';
 
 			var map = new mapboxgl.Map({
 				container: 'mapBox',
 				style: 'mapbox://styles/na3ar1y/cjyq06c1y1my31cpit9snzpsi',
-				center: [-96, 37.8],
+				center: location,
 				zoom: 10
 			});
-
 
 			// https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
 			// Add geolocate control to the map.
 			map.addControl(new mapboxgl.GeolocateControl({
 				positionOptions: {
-					enableHighAccuracy: true
+					enableHighAccuracy: false
 				},
-				trackUserLocation: true
+				trackUserLocation: false
 			}));
 
+		},
+		
+		isLink(value){
+			return value.indexOf('http') != -1;
+		},
+
+		getUserLocation(userIp) {
+			// BLOCKED BY SERVICE
+			userIp = ( userIp != undefined) ? userIp : '194.183.167.96' ; //IP Kyiv
+
+			var req = new XMLHttpRequest();
+			var url = "https://api.ipinfodb.com/v3/ip-city/?key=10376990a6c7e07567a8beeda379911a15af1bcc5e86e898820530ab5c79dc1c&ip=" + userIp;
+
+			req.overrideMimeType("text/html");
+			req.open('GET', url, true);
+			req.onload  = function() { // запрос завершился
+				var result = req.responseText;
+				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocation()");
+				console.log("getUserLocation ! ! !: ", result);
+			};
+			req.send(null);
 
 		}
-		
 	},
 	beforeMount(){},
 	mounted(){
 		
 		var url = window.location.href + "php/";
 		var urlLocal = window.location.href + "php/data.json";
-		// this.getJSON(url, this.separetaJSON);
-		this.getJSON(urlLocal, this.separetaJSON);
+		this.getJSON(url, this.separetaJSON);
+		// this.getJSON(urlLocal, this.separetaJSON);
 
 		this.initialVideo();
 		this.initialMap();
@@ -221,13 +252,11 @@ let vm = new Vue({
 				this.owl_gey();
 				this.owl_webcam();
 				this.activateTab('sex') 
-			}, 1200);
+			}, 1000);
 
 			setTimeout(function(){
 				self.topCarousel();
-			}, 1000);
-		})
-		
-
+			}, 800);
+		});
 	}
 });

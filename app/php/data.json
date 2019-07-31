@@ -39,7 +39,19 @@
 			}
 	],
 
-	"maps": "NONE",
+	"maps": {
+		"link": "https://google.com",
+		"user_ip": "194.183.167.96, 172.68.239.30",
+		"girls": [
+			"https://picsum.photos/id/99/48/48",
+			"https://picsum.photos/id/99/48/48",
+			"https://picsum.photos/id/99/48/48",
+			"https://picsum.photos/id/99/48/48",
+			"4",
+			"https://picsum.photos/id/99/48/48",
+			"https://picsum.photos/id/99/48/48"
+		]
+	},
 
 	"top_active": [
 			{

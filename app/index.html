@@ -29,7 +29,7 @@
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
 
 	<link rel="stylesheet" href="libs/video-js/plyr.css">
-	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/style.min.css?v4">
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,700i,900&display=swap" rel="stylesheet">
 </head>
@@ -119,10 +119,20 @@
 
 				<div class="maps__cont">
 					<h2 class="maps__subtitle">Girls nearby</h2>
+
+					<ul class="maps__girls">
+						<li v-for="(item, index) in mapsDATA.girls">
+							<a :href="mapsDATA.link">
+								<img :src="item" alt="girl" v-if="isLink(item)">
+								<span v-if="!isLink(item)">4</span>
+							</a>
+						</li>
+					</ul>
+
 					<div class="maps__code" id="mapBox">
-						<!-- <iframe width="100%" height="300" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" src="https://map.pop6.com/tile/lat/58.40112/lon/15.64941/zoom/11/width/1400/height/600/page/aHR0cDovL2FkdWx0ZnJpZW5kZmluZGVyLmNvbS9wL3JlZ2lzdGVyLmNnaT9waWQ9cDYyMTUxYyZzaXRlPWZmYWR1bHQmbGFuZz1lbmdsaXNoJmNyZWF0aXZlPQ%3D%3D/target/_self.html"></iframe>
-						 -->
-						 <!-- <script type="text/javascript">
+
+						 <!--
+						<script type="text/javascript">
 							var xmlhttp = new XMLHttpRequest();
 							var ip = '194.183.167.96';
 							var apiKey = 'uCyqbdI1l9OaCQPnq6ArSeU63JkXwi3XfF6ZDnu6';
@@ -369,7 +379,12 @@
 	<script src="libs/video-js/plyr.min.js"></script>
 	
 	<!-- <script src="js/common.js"></script> -->
-	<script src="js/vue-script.js?v1"></script>
+	<script src="js/vue-script.js?v7"></script>
 
 </body>
 </html>
+
+
+<!-- http://api.ipinfodb.com/v3/ip-country/?key=10376990a6c7e07567a8beeda379911a15af1bcc5e86e898820530ab5c79dc1c&ip=194.183.167.96 -->
+
+<!-- http://api.ipinfodb.com/v3/ip-city/?key=10376990a6c7e07567a8beeda379911a15af1bcc5e86e898820530ab5c79dc1c&ip=194.183.167.96 -->
