@@ -10,6 +10,7 @@ let vm = new Vue({
 		instagramDATA: [],
 		topActiveDATA: [],
 		mapsDATA: '',
+		mapsLocalization: '',
 		videoDATA: '',
 		filterDATA: '',
 		filterIam: '',
@@ -76,7 +77,7 @@ let vm = new Vue({
 			console.log('IP-1', test );
 			console.log('IP', this.userIP );
 
-			// this.getUserLocation(this.userIP);
+			this.getUserLocationFromServer();
 
 			// top active
 			for (var i = 0; i < json.top_active.length; i++) {
@@ -190,6 +191,9 @@ let vm = new Vue({
 		initialMap(arrLocations){
 			var location = ( arrLocations != undefined) ? arrLocations : [30.455, 50.414] ;
 			
+			console.log("initialMap", arrLocations);
+			console.log("initialMap", location);
+
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmEzYXIxeSIsImEiOiJjanloM29tenQwNzRtM2hwYWw4emUyaXhlIn0.PuWkJSZ5w1Ijq-surIhTsw';
 
 			var map = new mapboxgl.Map({
@@ -215,7 +219,7 @@ let vm = new Vue({
 		},
 
 		getUserLocation(userIp) {
-			// BLOCKED BY SERVICE
+			// BLOCKED BY SERVICE - DEPRICATED
 			userIp = ( userIp != undefined) ? userIp : '194.183.167.96' ; //IP Kyiv
 
 			var req = new XMLHttpRequest();
@@ -230,6 +234,36 @@ let vm = new Vue({
 			};
 			req.send(null);
 
+		},
+
+		getUserLocationFromServer(){
+			var req = new XMLHttpRequest();
+			var url = window.location.href + "php/get_localizetion.php";
+			var self = this;
+
+			req.overrideMimeType("application/json");
+			req.open('GET', url, true);
+			req.onload  = function() { // запрос завершился
+				var localization = req.responseText;
+				// var localization = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
+				var result = JSON.parse(localization);
+
+				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocationFromServer()");
+				
+				var LocalizArr = [];
+				LocalizArr.push(result[9]);
+				LocalizArr.push(result[8]);
+
+				// var LocalizArr = [ -0.102505, 51.501462 ]; // test londow (in google maps [51.501462, -0.102505])
+				console.log("AdaptiveMaps Coordinate: - all", localization);
+				console.log("AdaptiveMaps Coordinate: - all2", result);
+				console.log("AdaptiveMaps Coordinate: - localization", LocalizArr);
+				
+				self.initialMap(LocalizArr);
+
+				console.log("AdaptiveMaps Coordinate: initialMap - OK");
+			};
+			req.send(null);
 		}
 	},
 	beforeMount(){},
@@ -237,11 +271,11 @@ let vm = new Vue({
 		
 		var url = window.location.href + "php/";
 		var urlLocal = window.location.href + "php/data.json";
-		this.getJSON(url, this.separetaJSON);
-		// this.getJSON(urlLocal, this.separetaJSON);
+		// this.getJSON(url, this.separetaJSON);
+		this.getJSON(urlLocal, this.separetaJSON);
 
 		this.initialVideo();
-		this.initialMap();
+		// this.initialMap();
 
 		this.$nextTick(function () {
 			// Код, который будет запущен только после
