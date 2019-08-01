@@ -10,7 +10,15 @@
 </head>
 <body>
 
+<script>
+        function openWindow( url )
+        {
+            window.open(url, '_blank');
+            window.focus();
+        }
+</script>
 
+<a href="http://www.google.com/" onclick="javascript:openWindow(this.href);return false;">Click Me</a>
 
 <h1>video</h1>
 

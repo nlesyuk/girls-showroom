@@ -11,6 +11,7 @@ let vm = new Vue({
 		topActiveDATA: [],
 		mapsDATA: '',
 		mapsLocalization: '',
+		isShowMapsGirls: false,
 		videoDATA: '',
 		filterDATA: '',
 		filterIam: '',
@@ -72,9 +73,6 @@ let vm = new Vue({
 			// maps
 			this.mapsDATA = json.maps;
 			this.userIP = this.mapsDATA.user_ip.split(",");
-			var test = typeof(this.mapsDATA.user_ip);
-			// console.dir('IP - all', typeof(this.mapsDATA.user_ip) );
-			console.log('IP-1', test );
 			console.log('IP', this.userIP );
 
 			this.getUserLocationFromServer();
@@ -191,7 +189,7 @@ let vm = new Vue({
 		initialMap(arrLocations){
 			var location = ( arrLocations != undefined) ? arrLocations : [30.455, 50.414] ;
 			
-			console.log("initialMap", arrLocations);
+			console.log("initialMap arr", arrLocations);
 			console.log("initialMap", location);
 
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmEzYXIxeSIsImEiOiJjanloM29tenQwNzRtM2hwYWw4emUyaXhlIn0.PuWkJSZ5w1Ijq-surIhTsw';
@@ -243,54 +241,89 @@ let vm = new Vue({
 
 			req.overrideMimeType("application/json");
 			req.open('GET', url, true);
-			req.onload  = function() { // запрос завершился
-				var localization = req.responseText;
-				// var localization = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
-				var result = JSON.parse(localization);
-
+			req.onload  = function() { // запрос завершился. Тестить только на сервере
+				
 				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocationFromServer()");
 				
-				var LocalizArr = [];
-				LocalizArr.push(result[9]);
-				LocalizArr.push(result[8]);
-
-				// var LocalizArr = [ -0.102505, 51.501462 ]; // test londow (in google maps [51.501462, -0.102505])
-				console.log("AdaptiveMaps Coordinate: - all", localization);
-				console.log("AdaptiveMaps Coordinate: - all2", result);
-				console.log("AdaptiveMaps Coordinate: - localization", LocalizArr);
+				var location = JSON.parse(req.responseText); // получаем JSON
+				// var location = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
 				
-				self.initialMap(LocalizArr);
+				var locationArr = [];
+				locationArr.push(location[9]);
+				locationArr.push(location[8]);
+				// var locationArr = [ -0.102505, 51.501462 ]; // test london (in google maps [51.501462, -0.102505])
 
-				console.log("AdaptiveMaps Coordinate: initialMap - OK");
+				console.log("AdaptiveMaps Coordinate: - all", location);
+				console.log("AdaptiveMaps Coordinate: - location", locationArr);
+				
+				self.initialMap(locationArr);
+				setTimeout(function(){
+					self.isShowMapsGirls = true;
+				}, 2000);
 			};
 			req.send(null);
+		},
+
+		openInNewTab() {
+			var current = window.location.href;
+			window.open(current);
+		},
+
+		redirectAllLinks(e) {
+			// document.links;
+			// e.preventDefault();
+			console.log( document.links );
+			for (var i = 0; i < document.links.length; i++) {
+				document.links[i].addEventListener("click", this.openInNewTab);
+			}
 		}
+
 	},
-	beforeMount(){},
-	mounted(){
-		
+	beforeMount(){
+
 		var url = window.location.href + "php/";
 		var urlLocal = window.location.href + "php/data.json";
 		// this.getJSON(url, this.separetaJSON);
 		this.getJSON(urlLocal, this.separetaJSON);
 
+	},
+	mounted(){
+
 		this.initialVideo();
 		// this.initialMap();
 
 		this.$nextTick(function () {
-			// Код, который будет запущен только после
-			// отображения всех представлений
+		});
+
 			var self = this;
-			setTimeout(()=>{ 
-				this.owl_sex();
-				this.owl_gey();
-				this.owl_webcam();
-				this.activateTab('sex') 
+			setTimeout(function(){ 
+				self.owl_sex();
+				self.owl_gey();
+				self.owl_webcam();
+				self.activateTab('sex') 
 			}, 1000);
 
 			setTimeout(function(){
 				self.topCarousel();
 			}, 800);
-		});
+
+			this.redirectAllLinks();
+
+	},		
+	updated(){
+		console.log("UPDATED");
+
+		/* var self = this;
+		setTimeout(()=>{ 
+			this.owl_sex();
+			this.owl_gey();
+			this.owl_webcam();
+			this.activateTab('sex') 
+		}, 1000);
+
+		setTimeout(function(){
+			self.topCarousel();
+		}, 800); */
+
 	}
 });

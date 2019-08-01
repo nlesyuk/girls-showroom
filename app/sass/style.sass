@@ -35,6 +35,7 @@ main
 .carousel
 	display: flex
 	width: 86%
+	min-height: 88px
 	margin-left: 15px
 	position: relative
 	&:before
@@ -73,7 +74,7 @@ main
 				font: 900 1.5rem/1 $font
 
 #carousel.owl-carousel
-	width: 100% 
+	width: 100%
 	position: relative
 	z-index: 4
 	.owl-stage-outer,
@@ -386,7 +387,7 @@ main
 	.maps__code
 		display: block
 		width: 100%
-		height: 100%
+		height: calc(100% - 56px)
 		min-height: 404px
 		// background: $darkBlue
 		background: transparent
@@ -493,7 +494,8 @@ main
 				filter: blur(0px)
 		.plyr__control--overlaid
 			background: #ee016d69 !important
-
+		.plyr--full-ui input[type=range]
+			color: #ee016d69 !important
 	video
 		display: block
 		max-width: 100%
@@ -780,9 +782,11 @@ footer
 	.carousel
 		width: 100%
 		margin-left: 0px
+		min-height: 88px
 	#carousel.owl-carousel
 		.owl-stage
 			padding-bottom: 48px
+			padding-bottom: 38px
 
 	// MIDDLE
 	.title
