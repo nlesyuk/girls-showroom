@@ -290,7 +290,6 @@ let vm = new Vue({
 	mounted(){
 
 		this.initialVideo();
-		// this.initialMap();
 
 		this.$nextTick(function () {
 		});

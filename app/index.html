@@ -51,7 +51,7 @@
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel">
 
-						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" >
+						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" @click="openInNewTab">
 							<img :src="item.avatar" alt="girl">
 							<span class="tooltiptext">{{ item.descr }}</span>
 						</a>
@@ -82,34 +82,34 @@
 				<div class="insta__cont">
 
 					<div class="insta__top">
-						<a :href="instagramDATA.link" class="insta__ava">
+						<a :href="instagramDATA.link" class="insta__ava" @click="openInNewTab">
 							<img :src="instagramDATA.big" alt="avatar">
 						</a>
-						<a :href="instagramDATA.link" class="insta__name">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
-						<a :href="instagramDATA.link" class="insta__msg">message me!</a>
+						<a :href="instagramDATA.link" class="insta__name" @click="openInNewTab">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
+						<a :href="instagramDATA.link" class="insta__msg" @click="openInNewTab">message me!</a>
 					</div>
 
 					<div class="insta__imgs">
-						<a :href="instagramDATA.link" class="insta__big-photo">
+						<a :href="instagramDATA.link" class="insta__big-photo" @click="openInNewTab">
 							<img :src="instagramDATA.big" alt="girl">
 						</a>
 						<ul class="insta__collage">
 							<li v-for="item in instagramDATA.smals">
-								<a :href="instagramDATA.link"><img :src="item" alt="girl"></a>
+								<a :href="instagramDATA.link" @click="openInNewTab"><img :src="item" alt="girl"></a>
 							</li>
 						</ul>
 					</div>
 
 					<div class="insta__nav">
 						<ul class="insta__btns">
-							<li><a :href="instagramDATA.link"><img src="img/like.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link"><img src="img/comment.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link"><img src="img/shape.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link"><img src="img/collect.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/like.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/comment.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/shape.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/collect.png" alt="like"></a></li>
 						</ul>
 					</div>
 					
-					<a :href="instagramDATA.link" class="insta__descr">
+					<a :href="instagramDATA.link" class="insta__descr" @click="openInNewTab">
 						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
 						<p class="insta__text2"><span>{{ instagramDATA.name }}</span> Single hottie looking for a real man! Write to me! ❤</p>
 					</a>
@@ -124,35 +124,14 @@
 
 					<ul class="maps__girls" v-show="isShowMapsGirls">
 						<li v-for="(item, index) in mapsDATA.girls">
-							<a :href="mapsDATA.link">
+							<a :href="mapsDATA.link" @click="openInNewTab">
 								<img :src="item" alt="girl" v-if="isLink(item)">
 								<span v-if="!isLink(item)">4</span>
 							</a>
 						</li>
 					</ul>
 
-					<div class="maps__code" id="mapBox">
-
-						 <!--
-						<script type="text/javascript">
-							var xmlhttp = new XMLHttpRequest();
-							var ip = '194.183.167.96';
-							var apiKey = 'uCyqbdI1l9OaCQPnq6ArSeU63JkXwi3XfF6ZDnu6';
-							var method = 'city'; 
-							var url = 'https://ip-location.icu/api/v1/'+method+'/?apiKey=' +apiKey+'&ip=' +ip;
-							
-							xmlhttp.onreadystatechange = function() {
-							 if (this.readyState == 4 && this.status == 200) {
-							  var result = JSON.parse(this.responseText);
-							  console.log(result);
-							 }
-							};
-							
-							xmlhttp.open("GET", url, true);
-							xmlhttp.send();
-						</script> -->
-						
-					</div>
+					<div class="maps__code" id="mapBox"></div>
 				</div>
 
 			</div>
@@ -180,7 +159,7 @@
 				</div>
 
 				<!-- https://github.com/sampotts/plyr -->
-				<a href="https://google.com" class="video__cont align-self-end ">
+				<a href="https://google.com" class="video__cont align-self-end " @click="openInNewTab">
 					<div class="plyr__video-embed" >
 
 						<!-- <video id="player" poster="videos/1.jpg"> -->
@@ -282,7 +261,7 @@
 
 					<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex" @click="openInNewTab">
 							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -293,7 +272,7 @@
 
 					<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey" @click="openInNewTab">
 							<img :src="item.photo" alt="gey" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -304,7 +283,7 @@
 
 					<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam" @click="openInNewTab">
 							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -330,7 +309,9 @@
 				
 				<ul class="footer__lists">
 					<li>In search of a boy</li>
-					<li v-for="(item, index) in footerDATA.Boy"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a></li>
+					<li v-for="(item, index) in footerDATA.Boy">
+						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a>
+					</li>
 				</ul>
 				
 			</div>
@@ -338,7 +319,9 @@
 
 				<ul class="footer__lists">
 					<li>In search of a girl</li>
-					<li v-for="(item, index) in footerDATA.Girl"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a></li>
+					<li v-for="(item, index) in footerDATA.Girl">
+						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a>
+					</li>
 				</ul>
 
 			</div>
@@ -346,7 +329,9 @@
 
 				<ul class="footer__lists last">
 					<li>In search of a man</li>
-					<li v-for="(item, index) in footerDATA.Man"><a :href="item">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a></li>
+					<li v-for="(item, index) in footerDATA.Man">
+						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a>
+					</li>
 				</ul>
 
 			</div>
