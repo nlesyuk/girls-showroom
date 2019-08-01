@@ -272,8 +272,8 @@ let vm = new Vue({
 
 		var url = window.location.href + "php/";
 		var urlLocal = window.location.href + "php/data.json";
-		// this.getJSON(url, this.separetaJSON);
-		this.getJSON(urlLocal, this.separetaJSON);
+		this.getJSON(url, this.separetaJSON);
+		// this.getJSON(urlLocal, this.separetaJSON);
 
 	},
 	mounted(){
@@ -288,12 +288,8 @@ let vm = new Vue({
 				self.owl_gey();
 				self.owl_webcam();
 				self.activateTab('sex') 
-			}, 0);
+			}, 1500);
 			
-			setTimeout(function() {
-				// self.topCarousel();
-			}, 0);
-
 			console.log("WINDOW ON LOAD");
 
 			var id = setInterval(function() {
