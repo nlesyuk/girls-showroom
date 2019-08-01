@@ -49,7 +49,7 @@
 				</a>
 
 				<div class="carousel">
-					<div id="carousel" class="owl-carousel">
+					<div id="carousel" class="owl-carousel" v-show="isJSONrecieved">
 
 						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" @click="openInNewTab">
 							<img :src="item.avatar" alt="girl">

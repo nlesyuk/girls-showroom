@@ -6,7 +6,9 @@ let vm = new Vue({
 			gey: true,
 			webcam: true
 		},
+		isJSONrecieved: false,
 		topSliderDATA: '',
+		isTopSliderReady: false,
 		instagramDATA: [],
 		topActiveDATA: [],
 		mapsDATA: '',
@@ -41,19 +43,20 @@ let vm = new Vue({
 		},
 
 		getJSON(url, callback) {
+			var self = this;
  			var req = new XMLHttpRequest();
 			// req.responseType = 'json'; // not support in IE11
 			req.overrideMimeType("application/json");
 			req.open('GET', url, true);
 			req.onload  = function() { // запрос завершился
+
+				if ( req.responseText.length == 0 ) console.error("AJAX Error");
 				var result = JSON.parse(req.responseText);
-
-				if ( req.responseText.length == 0 ) {
-					console.error(" AJAX Error");
-				}
-
-				console.log("result", result);
+				
+				
 				callback(result);
+				
+				// self.isJSONrecieved = true;
 			};
 			req.send(null);
 
@@ -63,18 +66,18 @@ let vm = new Vue({
 			console.log('json', json);
 			// top slider
 			this.topSliderDATA = json.top_slider;
-			console.log('topSliders', this.topSliderDATA);
+			this.isJSONrecieved = true;
+				// console.log('topSliders', this.topSliderDATA);
 			
 			// instagram
 			var randIndex = Math.floor(Math.random() * json.instagram.length);
 			this.instagramDATA = json.instagram[randIndex];
-			console.log('instagramDATA', this.instagramDATA);
+				// console.log('instagramDATA', this.instagramDATA);
 			
 			// maps
 			this.mapsDATA = json.maps;
 			this.userIP = this.mapsDATA.user_ip.split(",");
-			console.log('IP', this.userIP );
-
+				// console.log('IP', this.userIP );
 			this.getUserLocationFromServer();
 
 			// top active
@@ -83,28 +86,28 @@ let vm = new Vue({
 				var item = json.top_active[random];
 				
 				if( this.topActiveDATA.indexOf(item) === -1 &&
-				this.topActiveDATA.length < 4 
+					this.topActiveDATA.length < 4 
 				){
 					this.topActiveDATA.push(item);
 				}
 			}
-			console.log('topActiveDATA', this.topActiveDATA);
+				// console.log('topActiveDATA', this.topActiveDATA);
 			
 			// video
 			this.videoDATA = json.videos;
-			console.log('videoDATA', this.videoDATA);
+				// console.log('videoDATA', this.videoDATA);
 
 			// filter
 			this.filterDATA = json.filter;
-			console.log('filterDATA', this.filterDATA);
+				// console.log('filterDATA', this.filterDATA);
 
 			// tabs
 			this.tabsDATA = json.tabs;
-			console.log('tabsDATA', this.tabsDATA);
+				// console.log('tabsDATA', this.tabsDATA);
 			
 			// footer
 			this.footerDATA = json.footer;
-			console.log('footerDATA', this.tabsDATA);
+				// console.log('footerDATA', this.tabsDATA);
 
 		},
 		
@@ -187,10 +190,7 @@ let vm = new Vue({
 		},
 
 		initialMap(arrLocations){
-			var location = ( arrLocations != undefined) ? arrLocations : [30.455, 50.414] ;
-			
-			console.log("initialMap arr", arrLocations);
-			console.log("initialMap", location);
+			var location = ( arrLocations != undefined) ? arrLocations : [30.455, 50.414] ; // Kyiv by default
 
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmEzYXIxeSIsImEiOiJjanloM29tenQwNzRtM2hwYWw4emUyaXhlIn0.PuWkJSZ5w1Ijq-surIhTsw';
 
@@ -203,13 +203,12 @@ let vm = new Vue({
 
 			// https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
 			// Add geolocate control to the map.
-			map.addControl(new mapboxgl.GeolocateControl({
+			/* map.addControl(new mapboxgl.GeolocateControl({
 				positionOptions: {
 					enableHighAccuracy: false
 				},
 				trackUserLocation: false
-			}));
-
+			})); */
 		},
 		
 		isLink(value){
@@ -245,13 +244,11 @@ let vm = new Vue({
 				
 				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocationFromServer()");
 				
-				var location = JSON.parse(req.responseText); // получаем JSON
-				// var location = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
+				// var location = JSON.parse(req.responseText); // получаем JSON
+				var location = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
 				
-				var locationArr = [];
-				locationArr.push(location[9]);
-				locationArr.push(location[8]);
-				// var locationArr = [ -0.102505, 51.501462 ]; // test london (in google maps [51.501462, -0.102505])
+				// var locationArr = [ location[9], location[8] ];
+				var locationArr = [ -0.102505, 51.501462 ]; // test london (in google maps [51.501462, -0.102505])
 
 				console.log("AdaptiveMaps Coordinate: - all", location);
 				console.log("AdaptiveMaps Coordinate: - location", locationArr);
@@ -265,18 +262,10 @@ let vm = new Vue({
 		},
 
 		openInNewTab() {
+			// just comments line below for deactivate redirect
 			var current = window.location.href;
 			window.open(current);
 		},
-
-		redirectAllLinks(e) {
-			// document.links;
-			// e.preventDefault();
-			console.log( document.links );
-			for (var i = 0; i < document.links.length; i++) {
-				document.links[i].addEventListener("click", this.openInNewTab);
-			}
-		}
 
 	},
 	beforeMount(){
@@ -288,41 +277,36 @@ let vm = new Vue({
 
 	},
 	mounted(){
+		var self = this;
 
 		this.initialVideo();
 
-		this.$nextTick(function () {
-		});
+		window.onload = function(){
 
-			var self = this;
-			setTimeout(function(){ 
+			setTimeout(function() { 
 				self.owl_sex();
 				self.owl_gey();
 				self.owl_webcam();
 				self.activateTab('sex') 
-			}, 1000);
+			}, 0);
+			
+			setTimeout(function() {
+				// self.topCarousel();
+			}, 0);
 
-			setTimeout(function(){
-				self.topCarousel();
-			}, 800);
+			console.log("WINDOW ON LOAD");
 
-			this.redirectAllLinks();
-
-	},		
+			var id = setInterval(function() {
+				if( self.isJSONrecieved ) {
+					self.topCarousel();
+					clearInterval(id);
+				}
+			}, 500)
+			
+		}
+		
+	},
 	updated(){
 		console.log("UPDATED");
-
-		/* var self = this;
-		setTimeout(()=>{ 
-			this.owl_sex();
-			this.owl_gey();
-			this.owl_webcam();
-			this.activateTab('sex') 
-		}, 1000);
-
-		setTimeout(function(){
-			self.topCarousel();
-		}, 800); */
-
 	}
 });
