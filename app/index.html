@@ -29,7 +29,7 @@
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
 
 	<link rel="stylesheet" href="libs/video-js/plyr.css">
-	<link rel="stylesheet" href="css/style.min.css?v4">
+	<link rel="stylesheet" href="css/style.min.css?v5">
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,700i,900&display=swap" rel="stylesheet">
 </head>
@@ -51,7 +51,7 @@
 				<div class="carousel">
 					<div id="carousel" class="owl-carousel" v-show="isJSONrecieved">
 
-						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" @click="openInNewTab">
+						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="item.avatar" alt="girl">
 							<span class="tooltiptext">{{ item.descr }}</span>
 						</a>
@@ -65,7 +65,7 @@
 			</div>
 		</div>
 
-<!-- <a href="//google.com" @click="openInNewTab">CLICK</a> -->
+<!-- <a href="//google.com" @click="openInNewTab(redirectToNewTab, $event)">CLICK</a> -->
 
 		<div class="row">
 			<div class="col">
@@ -82,34 +82,34 @@
 				<div class="insta__cont">
 
 					<div class="insta__top">
-						<a :href="instagramDATA.link" class="insta__ava" @click="openInNewTab">
+						<a :href="instagramDATA.link" class="insta__ava" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="instagramDATA.big" alt="avatar">
 						</a>
-						<a :href="instagramDATA.link" class="insta__name" @click="openInNewTab">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
-						<a :href="instagramDATA.link" class="insta__msg" @click="openInNewTab">message me!</a>
+						<a :href="instagramDATA.link" class="insta__name" @click="openInNewTab(redirectToNewTab, $event)">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
+						<a :href="instagramDATA.link" class="insta__msg" @click="openInNewTab(redirectToNewTab, $event)">message me!</a>
 					</div>
 
 					<div class="insta__imgs">
-						<a :href="instagramDATA.link" class="insta__big-photo" @click="openInNewTab">
+						<a :href="instagramDATA.link" class="insta__big-photo" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="instagramDATA.big" alt="girl">
 						</a>
 						<ul class="insta__collage">
 							<li v-for="item in instagramDATA.smals">
-								<a :href="instagramDATA.link" @click="openInNewTab"><img :src="item" alt="girl"></a>
+								<a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img :src="item" alt="girl"></a>
 							</li>
 						</ul>
 					</div>
 
 					<div class="insta__nav">
 						<ul class="insta__btns">
-							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/like.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/comment.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/shape.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab"><img src="img/collect.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/like.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/comment.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/shape.png" alt="like"></a></li>
+							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/collect.png" alt="like"></a></li>
 						</ul>
 					</div>
 					
-					<a :href="instagramDATA.link" class="insta__descr" @click="openInNewTab">
+					<a :href="instagramDATA.link" class="insta__descr" @click="openInNewTab(redirectToNewTab, $event)">
 						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
 						<p class="insta__text2"><span>{{ instagramDATA.name }}</span> Single hottie looking for a real man! Write to me! ❤</p>
 					</a>
@@ -124,7 +124,7 @@
 
 					<ul class="maps__girls" v-show="isShowMapsGirls">
 						<li v-for="(item, index) in mapsDATA.girls">
-							<a :href="mapsDATA.link" @click="openInNewTab">
+							<a :href="mapsDATA.link" @click="openInNewTab(redirectToNewTab, $event)">
 								<img :src="item" alt="girl" v-if="isLink(item)">
 								<span v-if="!isLink(item)">4</span>
 							</a>
@@ -143,30 +143,30 @@
 
 						<li v-for="item in topActiveDATA" >
 							<ul class="topactive__social">
-								<li :class="{'hidden': false }"><a :href="item.link" ><img src="img/fb.svg" alt="social icon"></a></li>
-								<li :class="{'hidden': randomNum() >= 5}"><a :href="item.link"><img src="img/fbm.svg" alt="social icon"></a></li>
-								<li :class="{'hidden': false}"><a :href="item.link"><img src="img/viber.png" alt="social icon"></a></li>
-								<li :class="{'hidden': randomNum() < 5}"><a :href="item.link"><img src="img/whatsapp.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': false }"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/fb.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': randomNum() >= 5}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/fbm.svg" alt="social icon"></a></li>
+								<li :class="{'hidden': false}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/viber.png" alt="social icon"></a></li>
+								<li :class="{'hidden': randomNum() < 5}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/whatsapp.svg" alt="social icon"></a></li>
 							</ul>
-							<a :href="item.link">
+							<a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)">
 								<img :src="item.avatar" alt="images" class="topactive__photo">
 							</a>
-							<a :href="item.link" class="topactive__btn">Online</a>
-							<a :href="item.link" class="topactive__name">{{ item.name }}</a>
+							<a :href="item.link" class="topactive__btn"  @click="openInNewTab(redirectToNewTab, $event)">Online</a>
+							<a :href="item.link" class="topactive__name"  @click="openInNewTab(redirectToNewTab, $event)">{{ item.name }}</a>
 						</li>
 
 					</ul>
 				</div>
 
-				<!-- https://github.com/sampotts/plyr -->
-				<a href="https://google.com" class="video__cont align-self-end " @click="openInNewTab">
+				<a href="https://google.com" class="video__cont align-self-end " @click="openInNewTab(redirectToNewTab, $event)">
 					<div class="plyr__video-embed" >
 
-						<!-- <video id="player" poster="videos/1.jpg"> -->
-						<video id="player">
+						<video id="player" :poster="videoPoster">
+						<!-- <video id="player"> -->
 							
 							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
-							<source src="videos/1.mp4" type="video/mp4" size="720">
+							<!-- <source src="videos/1.mp4" type="video/mp4" size="720"> -->
+							<source :src="videoSource" type="video/mp4">
 						
 						</video>
 						
@@ -202,7 +202,7 @@
 								<option value="c">Couple</option>
 							</select>
 						</div>
-						<button type="button" id="filter__btn" @click="filterRedirect">Search</button>
+						<button type="button" id="filter__btn" @click="filterRedirect(redirectToNewTab)">Search</button>
 					</form>
 
 				</div>
@@ -261,7 +261,7 @@
 
 					<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex" @click="openInNewTab">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -272,7 +272,7 @@
 
 					<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey" @click="openInNewTab">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="item.photo" alt="gey" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -283,7 +283,7 @@
 
 					<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
 
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam" @click="openInNewTab">
+						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam" @click="openInNewTab(redirectToNewTab, $event)">
 							<img :src="item.photo" alt="girl" class="tabs__img">
 							<p class="tabs__online"></p>
 							<p class="tabs__name">{{ item.name }}</p>
@@ -310,7 +310,7 @@
 				<ul class="footer__lists">
 					<li>In search of a boy</li>
 					<li v-for="(item, index) in footerDATA.Boy">
-						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a>
+						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a>
 					</li>
 				</ul>
 				
@@ -320,7 +320,7 @@
 				<ul class="footer__lists">
 					<li>In search of a girl</li>
 					<li v-for="(item, index) in footerDATA.Girl">
-						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a>
+						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a>
 					</li>
 				</ul>
 
@@ -330,7 +330,7 @@
 				<ul class="footer__lists last">
 					<li>In search of a man</li>
 					<li v-for="(item, index) in footerDATA.Man">
-						<a :href="item" @click="openInNewTab">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a>
+						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a>
 					</li>
 				</ul>
 
@@ -366,7 +366,7 @@
 	<script src="libs/video-js/plyr.min.js"></script>
 	
 	<!-- <script src="js/common.js"></script> -->
-	<script src="js/vue-script.js?v20"></script>
+	<script src="js/vue-script.js?v25"></script>
 
 </body>
 </html>

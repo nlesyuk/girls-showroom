@@ -1,4 +1,6 @@
 {
+	"redirect_to_new_tab": "false",
+
 	"top_slider": [
 		{
 			"link": "https://google.com",
@@ -8,35 +10,35 @@
 		{
 			"link": "https://google.com",
 			"avatar": "https://picsum.photos/id/44/44/44",
-			"descr": "I'm Marii, 25 y.o."
+			"descr": "I'm Marii, 25 y.o. 21"
 		}
 	],
 
 	"instagram": [
-			{
-				"big": "https://picsum.photos/id/34/300/306",
-				"smals": [
-						"https://picsum.photos/id/314/92/78",
-						"https://picsum.photos/id/334/92/78",
-						"https://picsum.photos/id/334/92/78",
-						"https://picsum.photos/id/374/92/78"
-				],
-				"name": "Nataly",
-				"location": "Rom, Italy",
-				"link": "https://google.com"
-			},
-			{
-				"big": "https://picsum.photos/id/34/300/306",
-				"smals": [
-					"https://picsum.photos/id/341/92/78",
-					"https://picsum.photos/id/342/92/78",
-					"https://picsum.photos/id/343/92/78",
-					"https://picsum.photos/id/344/92/78"
-				],
-				"name": "Julia",
-				"location": "Milan, Italy",
-				"link": "https://google.com"
-			}
+		{
+			"big": "https://picsum.photos/id/34/300/306",
+			"smals": [
+					"https://picsum.photos/id/314/92/78",
+					"https://picsum.photos/id/334/92/78",
+					"https://picsum.photos/id/334/92/78",
+					"https://picsum.photos/id/374/92/78"
+			],
+			"name": "Nataly",
+			"location": "Rom, Italy",
+			"link": "https://google.com"
+		},
+		{
+			"big": "https://picsum.photos/id/34/300/306",
+			"smals": [
+				"https://picsum.photos/id/341/92/78",
+				"https://picsum.photos/id/342/92/78",
+				"https://picsum.photos/id/343/92/78",
+				"https://picsum.photos/id/344/92/78"
+			],
+			"name": "Julia",
+			"location": "Milan, Italy",
+			"link": "https://google.com"
+		}
 	],
 
 	"maps": {
@@ -98,9 +100,8 @@
 	],
 
 	"videos": [
-		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
-		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
-		"https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+		"videos/1.mp4",
+		"videos/3.mp4"
 	],
 
 	"filter": {

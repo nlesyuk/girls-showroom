@@ -6,6 +6,7 @@ let vm = new Vue({
 			gey: true,
 			webcam: true
 		},
+		redirectToNewTab: false,
 		isJSONrecieved: false,
 		topSliderDATA: '',
 		isTopSliderReady: false,
@@ -15,6 +16,8 @@ let vm = new Vue({
 		mapsLocalization: '',
 		isShowMapsGirls: false,
 		videoDATA: '',
+		videoSource: '',
+		videoPoster: '',
 		filterDATA: '',
 		filterIam: '',
 		filterLooking: '',
@@ -32,8 +35,7 @@ let vm = new Vue({
 				992:{items: 6},
 				1140:{items: 6}
 			}
-		},
-
+		}
 	},
 	methods: {
 
@@ -53,7 +55,6 @@ let vm = new Vue({
 				if ( req.responseText.length == 0 ) console.error("AJAX Error");
 				var result = JSON.parse(req.responseText);
 				
-				
 				callback(result);
 				
 				// self.isJSONrecieved = true;
@@ -64,6 +65,13 @@ let vm = new Vue({
 
 		separetaJSON(json) {
 			console.log('json', json);
+			var self = this;
+
+			// Redirect
+			var str = json.redirect_to_new_tab;
+			this.redirectToNewTab = ( str === "false") ? false : true;
+				console.log('redirectToNewTab', this.redirectToNewTab);
+
 			// top slider
 			this.topSliderDATA = json.top_slider;
 			this.isJSONrecieved = true;
@@ -95,7 +103,25 @@ let vm = new Vue({
 			
 			// video
 			this.videoDATA = json.videos;
-				// console.log('videoDATA', this.videoDATA);
+			var max = this.videoDATA.length;
+			var random = this.randomNum(max);
+			this.videoSource = window.location.href + this.videoDATA[random];
+
+			var lastSlash 	 = this.videoSource.lastIndexOf('/');
+			var videoName 	 = this.videoSource.substring(lastSlash);
+			this.videoPoster = window.location.href + "videos" + videoName.replace("mp4","jpg");
+
+				console.log('videoDATA', this.videoDATA);
+				console.log('videoDATA', random);
+				console.log('videoDATA', videoName );
+				console.log('videoDATA - def', this.videoPoster );
+				console.log('videoDATA - def', this.videoSource );
+
+				setTimeout(function(){
+					self.initialVideo();
+					console.log("VIDEO INIT");
+				}, 1000)
+
 
 			// filter
 			this.filterDATA = json.filter;
@@ -160,18 +186,20 @@ let vm = new Vue({
 			});
 		},
 
-		randomNum() {
-			return Math.floor(Math.random() * 10)
+		randomNum(max = 10) {
+			return Math.floor(Math.random() * max)
 		},
 
 		initialVideo() {
+			// https://github.com/sampotts/plyr
 			const player = new Plyr('#player', {
 				title: 'Example Title',
 				// controls: [],
-				controls: ['play-large', 'play', 'progress', 'current-time1', 'volume', 'captions', ],
+				controls: ['play-large', 'play', 'progress', 'current-time1', 'volume', 'captions'],
 				muted: true,
 				loop: { active: true }
 			});
+
 
 			var playerCont = document.querySelector(".video__cont");
 			playerCont.addEventListener("mouseover", function(){
@@ -182,11 +210,21 @@ let vm = new Vue({
 			});
 		},
 
-		filterRedirect() {
+		filterRedirect(redirectToNewTab) {
 			var value = this.filterIam + "-" + this.filterLooking;
 			var newlink = this.filterDATA[value];
-			console.log('newlink', newlink);
-			window.location = newlink;
+
+			// делать редирект на новую вкладку и в текущую загружать офер?
+			if( !!redirectToNewTab ){
+				// да
+				var current = window.location.href;
+				window.open(current);
+
+				window.location = newlink;
+			} else {
+				// нет 
+				window.location = newlink;
+			}
 		},
 
 		initialMap(arrLocations){
@@ -244,11 +282,11 @@ let vm = new Vue({
 				
 				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocationFromServer()");
 				
-				// var location = JSON.parse(req.responseText); // получаем JSON
-				var location = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
+				var location = JSON.parse(req.responseText); // получаем JSON
+					// var location = ["OK","","194.183.167.96","UA","Ukraine","Kyiv","Kiev","03150","50.4547","30.5238","+03:00"]; // test response
 				
-				// var locationArr = [ location[9], location[8] ];
-				var locationArr = [ -0.102505, 51.501462 ]; // test london (in google maps [51.501462, -0.102505])
+				var locationArr = [ location[9], location[8] ];
+					// var locationArr = [ -0.102505, 51.501462 ]; // test london (in google maps [51.501462, -0.102505])
 
 				console.log("AdaptiveMaps Coordinate: - all", location);
 				console.log("AdaptiveMaps Coordinate: - location", locationArr);
@@ -261,25 +299,34 @@ let vm = new Vue({
 			req.send(null);
 		},
 
-		openInNewTab() {
-			// just comments line below for deactivate redirect
+		openInNewTab(redirectToNewTab, event) {
 			var current = window.location.href;
-			window.open(current);
+			var linkHref = event.target.href;
+
+			if( redirectToNewTab ){
+				// да
+				window.location = linkHref;
+				window.open(current);
+			} else {
+				// нет
+				window.location = linkHref;
+			}
+
 		},
 
 	},
 	beforeMount(){
 
 		var url = window.location.href + "php/";
-		var urlLocal = window.location.href + "php/data.json";
-		this.getJSON(url, this.separetaJSON);
-		// this.getJSON(urlLocal, this.separetaJSON);
+			var urlLocal = window.location.href + "php/data.json";
+		// this.getJSON(url, this.separetaJSON);
+			this.getJSON(urlLocal, this.separetaJSON);
 
 	},
 	mounted(){
 		var self = this;
 
-		this.initialVideo();
+		// this.initialVideo();
 
 		window.onload = function(){
 
