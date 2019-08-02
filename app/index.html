@@ -2,7 +2,9 @@
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="ru"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="ru">
+<!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
@@ -10,7 +12,7 @@
 	<title>Sexy ladies are waiting! Find Your Pearl Now!</title>
 	<meta name="description" content="Sexy ladies are waiting! Find Your Pearl Now!">
 	<meta content="width=1170" name="viewport" id="viewport">
-	
+
 	<meta http-equiv="Cache-Control" content="public">
 	<meta http-equiv="Expires" content="Wed, 22 Mar 2025 00:20:05 GMT">
 
@@ -25,9 +27,12 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" integrity="sha256-D9AvR0EzkNZoWZVSvI3ch+uf/Z5izrIpcbsykVphwPU=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css"
+		integrity="sha256-D9AvR0EzkNZoWZVSvI3ch+uf/Z5izrIpcbsykVphwPU=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+		integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/video-js/plyr.css">
 
@@ -35,323 +40,365 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,700i,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 
-<div id="app">
+	<div id="app">
 
-<main>
-	<div class="container">
+		<main>
+			<div class="container">
 
-		<div class="row">
-			<div class="d-flex col-12 flex-lg-nowrap flex-sm-wrap flex-wrap">
+				<div class="row">
+					<div class="d-flex col-12 flex-lg-nowrap flex-sm-wrap flex-wrap">
 
-				<a href="javascript:void(0)" class="logo">
-					<img src="img/logo.png" alt="logo">
-				</a>
-
-				<div class="carousel">
-					<div id="carousel" class="owl-carousel" v-show="isJSONrecieved">
-
-						<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="item.avatar" alt="girl">
-							<span class="tooltiptext">{{ item.descr }}</span>
+						<a href="javascript:void(0)" class="logo">
+							<img src="img/logo.png" alt="logo">
 						</a>
 
+						<div class="carousel">
+							<div id="carousel" class="owl-carousel" v-show="isJSONrecieved">
+
+								<a :href="item.link" class="tooltip" v-for="(item, index) in topSliderDATA"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="item.avatar" alt="girl">
+									<span class="tooltiptext">{{ item.descr }}</span>
+								</a>
+
+							</div>
+							<div class="carousel__more">
+								<p class="carousel__text"><span>+249</span>girls online</p>
+							</div>
+						</div>
+
 					</div>
-					<div class="carousel__more">
-						<p class="carousel__text"><span>+249</span>girls online</p>
-					</div>	
 				</div>
-					
-			</div>
-		</div>
 
-<!-- <a href="//google.com" @click="openInNewTab(redirectToNewTab, $event)">CLICK</a> -->
+				<!-- <a href="//google.com" @click="openInNewTab(redirectToNewTab, $event)">CLICK</a> -->
 
-		<div class="row">
-			<div class="col">
+				<div class="row">
+					<div class="col">
 
-				<h1 class="title">Sexy ladies are waiting! Find Your Pearl Now!</h1>
+						<h1 class="title">Sexy ladies are waiting! Find Your Pearl Now!</h1>
 
-			</div>
-		</div>
-
-
-		<div class="row ">
-			<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
-
-				<div class="insta__cont">
-
-					<div class="insta__top">
-						<a :href="instagramDATA.link" class="insta__ava" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="instagramDATA.big" alt="avatar">
-						</a>
-						<a :href="instagramDATA.link" class="insta__name" @click="openInNewTab(redirectToNewTab, $event)">{{ instagramDATA.name }} <span>{{ instagramDATA.location }}</span></a>
-						<a :href="instagramDATA.link" class="insta__msg" @click="openInNewTab(redirectToNewTab, $event)">message me!</a>
 					</div>
+				</div>
 
-					<div class="insta__imgs">
-						<a :href="instagramDATA.link" class="insta__big-photo" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="instagramDATA.big" alt="girl">
+
+				<div class="row ">
+					<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+
+						<div class="insta__cont">
+
+							<div class="insta__top">
+								<a :href="instagramDATA.link" class="insta__ava"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="instagramDATA.big" alt="avatar">
+								</a>
+								<a :href="instagramDATA.link" class="insta__name"
+									@click="openInNewTab(redirectToNewTab, $event)">{{ instagramDATA.name }}
+									<span>{{ instagramDATA.location }}</span></a>
+								<a :href="instagramDATA.link" class="insta__msg"
+									@click="openInNewTab(redirectToNewTab, $event)">message me!</a>
+							</div>
+
+							<div class="insta__imgs">
+								<a :href="instagramDATA.link" class="insta__big-photo"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="instagramDATA.big" alt="girl">
+								</a>
+								<ul class="insta__collage">
+									<li v-for="item in instagramDATA.smals">
+										<a :href="instagramDATA.link"
+											@click="openInNewTab(redirectToNewTab, $event)"><img :src="item"
+												alt="girl"></a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="insta__nav">
+								<ul class="insta__btns">
+									<li><a :href="instagramDATA.link"
+											@click="openInNewTab(redirectToNewTab, $event)"><img src="img/like.png"
+												alt="like"></a></li>
+									<li><a :href="instagramDATA.link"
+											@click="openInNewTab(redirectToNewTab, $event)"><img src="img/comment.png"
+												alt="like"></a></li>
+									<li><a :href="instagramDATA.link"
+											@click="openInNewTab(redirectToNewTab, $event)"><img src="img/shape.png"
+												alt="like"></a></li>
+									<li><a :href="instagramDATA.link"
+											@click="openInNewTab(redirectToNewTab, $event)"><img src="img/collect.png"
+												alt="like"></a></li>
+								</ul>
+							</div>
+
+							<a :href="instagramDATA.link" class="insta__descr"
+								@click="openInNewTab(redirectToNewTab, $event)">
+								<p class="insta__text1">Liked by SweetKitty and 621 others</p>
+								<p class="insta__text2"><span>{{ instagramDATA.name }}</span> Single hottie looking for
+									a real man! Write to me! ❤</p>
+							</a>
+
+						</div>
+
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+
+						<div class="maps__cont">
+							<h2 class="maps__subtitle">Girls nearby</h2>
+
+							<ul class="maps__girls" v-show="isShowMapsGirls">
+								<li v-for="(item, index) in mapsDATA.girls">
+									<a :href="mapsDATA.link" @click="openInNewTab(redirectToNewTab, $event)">
+										<img :src="item" alt="girl" v-if="isLink(item)">
+										<span v-if="!isLink(item)">4</span>
+									</a>
+								</li>
+							</ul>
+
+							<div class="maps__code" id="mapBox"></div>
+						</div>
+
+					</div>
+					<div class="col-md-12 col-lg-4 d-flex flex-column justify-content-between">
+
+						<div class="topactive__cont ">
+							<p class="topactive__title">Top Active Girls</p>
+							<ul class="topactive__items">
+
+								<li v-for="item in topActiveDATA">
+									<ul class="topactive__social">
+										<li :class="{'hidden': false }"><a :href="item.link"
+												@click="openInNewTab(redirectToNewTab, $event)"><img src="img/fb.svg"
+													alt="social icon"></a></li>
+										<li :class="{'hidden': randomNum() >= 5}"><a :href="item.link"
+												@click="openInNewTab(redirectToNewTab, $event)"><img src="img/fbm.svg"
+													alt="social icon"></a></li>
+										<li :class="{'hidden': false}"><a :href="item.link"
+												@click="openInNewTab(redirectToNewTab, $event)"><img src="img/viber.png"
+													alt="social icon"></a></li>
+										<li :class="{'hidden': randomNum() < 5}"><a :href="item.link"
+												@click="openInNewTab(redirectToNewTab, $event)"><img
+													src="img/whatsapp.svg" alt="social icon"></a></li>
+									</ul>
+									<a :href="item.link" @click="openInNewTab(redirectToNewTab, $event)">
+										<img :src="item.avatar" alt="images" class="topactive__photo">
+									</a>
+									<a :href="item.link" class="topactive__btn"
+										@click="openInNewTab(redirectToNewTab, $event)">Online</a>
+									<a :href="item.link" class="topactive__name"
+										@click="openInNewTab(redirectToNewTab, $event)">{{ item.name }}</a>
+								</li>
+
+							</ul>
+						</div>
+
+						<a href="https://google.com" class="video__cont align-self-end "
+							@click="openInNewTab(redirectToNewTab, $event)">
+							<div class="plyr__video-embed">
+
+								<video id="player" :poster="videoPoster">
+									<!-- <video id="player"> -->
+
+									<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
+									<!-- <source src="videos/1.mp4" type="video/mp4" size="720"> -->
+									<source :src="videoSource" type="video/mp4">
+
+								</video>
+
+
+							</div>
 						</a>
-						<ul class="insta__collage">
-							<li v-for="item in instagramDATA.smals">
-								<a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img :src="item" alt="girl"></a>
+
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col">
+
+						<div class="filter__cont">
+
+							<h2 class="filter__title">Choose Your Interest<span>We have expert dating advice for
+									everyone! </span></h2>
+
+							<form action="" class="filter__form">
+								<div class="filter__selectcont">
+									<select name="iam" id="iam" v-model="filterIam" required>
+										<option disabled value="">Choose</option>
+										<option value="m" autofocus>I'm Male</option>
+										<option value="f">I'm Female</option>
+									</select>
+								</div>
+								<p class="filter__text1">looking for</p>
+								<div class="filter__selectcont">
+									<select name="lookinFor" id="lookinFor" v-model="filterLooking" required>
+										<option disabled value="">Choose</option>
+										<option value="m">Male</option>
+										<option value="f" autofocus>Female</option>
+										<option value="c">Couple</option>
+									</select>
+								</div>
+								<button type="button" id="filter__btn"
+									@click="filterRedirect(redirectToNewTab)">Search</button>
+							</form>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</main>
+
+		<section id="tabs-nav">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-9 col-lg-10">
+
+						<ul class="tabs__nav">
+							<li><button id="sex" :class="{'active': isActiveTabs.sex}"
+									@click="activateTab('sex')">Sex</button>
+							</li>
+							<li><button id="gey" :class="{'active': isActiveTabs.gey}"
+									@click="activateTab('gey')">Gey</button>
+							</li>
+							<li><button id="webcam" :class="{'active': isActiveTabs.webcam}"
+									@click="activateTab('webcam')">Online Webcam</button>
 							</li>
 						</ul>
-					</div>
 
-					<div class="insta__nav">
-						<ul class="insta__btns">
-							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/like.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/comment.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/shape.png" alt="like"></a></li>
-							<li><a :href="instagramDATA.link" @click="openInNewTab(redirectToNewTab, $event)"><img src="img/collect.png" alt="like"></a></li>
+					</div>
+					<div class="col-3 col-lg-2">
+
+						<ul class="tabs__control">
+							<li><button class="owl_sex prev"> &nbsp; </button></li>
+							<li><button class="owl_sex next"> &nbsp; </button></li>
 						</ul>
-					</div>
-					
-					<a :href="instagramDATA.link" class="insta__descr" @click="openInNewTab(redirectToNewTab, $event)">
-						<p class="insta__text1">Liked by SweetKitty and 621 others</p>
-						<p class="insta__text2"><span>{{ instagramDATA.name }}</span> Single hottie looking for a real man! Write to me! ❤</p>
-					</a>
-
-				</div>
-
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4 d-flex">
-
-				<div class="maps__cont">
-					<h2 class="maps__subtitle">Girls nearby</h2>
-
-					<ul class="maps__girls" v-show="isShowMapsGirls">
-						<li v-for="(item, index) in mapsDATA.girls">
-							<a :href="mapsDATA.link" @click="openInNewTab(redirectToNewTab, $event)">
-								<img :src="item" alt="girl" v-if="isLink(item)">
-								<span v-if="!isLink(item)">4</span>
-							</a>
-						</li>
-					</ul>
-
-					<div class="maps__code" id="mapBox"></div>
-				</div>
-
-			</div>
-			<div class="col-md-12 col-lg-4 d-flex flex-column justify-content-between">
-
-				<div class="topactive__cont ">
-					<p class="topactive__title">Top Active Girls</p>
-					<ul class="topactive__items">
-
-						<li v-for="item in topActiveDATA" >
-							<ul class="topactive__social">
-								<li :class="{'hidden': false }"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/fb.svg" alt="social icon"></a></li>
-								<li :class="{'hidden': randomNum() >= 5}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/fbm.svg" alt="social icon"></a></li>
-								<li :class="{'hidden': false}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/viber.png" alt="social icon"></a></li>
-								<li :class="{'hidden': randomNum() < 5}"><a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)"><img src="img/whatsapp.svg" alt="social icon"></a></li>
-							</ul>
-							<a :href="item.link"  @click="openInNewTab(redirectToNewTab, $event)">
-								<img :src="item.avatar" alt="images" class="topactive__photo">
-							</a>
-							<a :href="item.link" class="topactive__btn"  @click="openInNewTab(redirectToNewTab, $event)">Online</a>
-							<a :href="item.link" class="topactive__name"  @click="openInNewTab(redirectToNewTab, $event)">{{ item.name }}</a>
-						</li>
-
-					</ul>
-				</div>
-
-				<a href="https://google.com" class="video__cont align-self-end " @click="openInNewTab(redirectToNewTab, $event)">
-					<div class="plyr__video-embed" >
-
-						<video id="player" :poster="videoPoster">
-						<!-- <video id="player"> -->
-							
-							<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
-							<!-- <source src="videos/1.mp4" type="video/mp4" size="720"> -->
-							<source :src="videoSource" type="video/mp4">
-						
-						</video>
-						
 
 					</div>
-				</a>
+				</div>
 
 			</div>
-		</div>
+		</section>
 
+		<section id="tabs">
+			<div class="container">
 
-		<div class="row" >
-			<div class="col">
+				<div class="row">
+					<div class="col">
 
-				<div class="filter__cont">
+						<div class="tabs__cont">
 
-					<h2 class="filter__title">Choose Your Interest<span>We have expert dating advice for everyone! </span></h2>
+							<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
 
-					<form action="" class="filter__form">
-						<div class="filter__selectcont">
-							<select name="iam" id="iam" v-model="filterIam" required>
-								<option disabled value="">Choose</option>
-								<option value="m" autofocus>I'm Male</option>
-								<option value="f">I'm Female</option>
-							</select>
+								<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="item.photo" alt="girl" class="tabs__img">
+									<p class="tabs__online"></p>
+									<p class="tabs__name">{{ item.name }}</p>
+									<p class="tabs__descr">{{ item.descr }}</p>
+								</a>
+
+							</div>
+
+							<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
+
+								<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="item.photo" alt="gey" class="tabs__img">
+									<p class="tabs__online"></p>
+									<p class="tabs__name">{{ item.name }}</p>
+									<p class="tabs__descr">{{ item.descr }}</p>
+								</a>
+
+							</div>
+
+							<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
+
+								<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam"
+									@click="openInNewTab(redirectToNewTab, $event)">
+									<img :src="item.photo" alt="girl" class="tabs__img">
+									<p class="tabs__online"></p>
+									<p class="tabs__name">{{ item.name }}</p>
+									<p class="tabs__descr">{{ item.descr }}</p>
+								</a>
+
+							</div>
+
 						</div>
-						<p class="filter__text1">looking for</p>
-						<div class="filter__selectcont">
-							<select name="lookinFor" id="lookinFor" v-model="filterLooking" required>
-								<option disabled value="">Choose</option>
-								<option value="m">Male</option>
-								<option value="f" autofocus>Female</option>
-								<option value="c">Couple</option>
-							</select>
-						</div>
-						<button type="button" id="filter__btn" @click="filterRedirect(redirectToNewTab)">Search</button>
-					</form>
 
+					</div>
 				</div>
-
 			</div>
-		</div>
+		</section>
 
-	</div>
-</main>
 
-<section id="tabs-nav">
-	<div class="container">
 
-		<div class="row">
-			<div class="col-9 col-lg-10">
 
-				<ul class="tabs__nav">
-					<li><button id="sex"
-						:class="{'active': isActiveTabs.sex}"
-						@click="activateTab('sex')"
-						>Sex</button>
-					</li>
-					<li><button id="gey"
-						:class="{'active': isActiveTabs.gey}"
-						@click="activateTab('gey')"
-						>Gey</button>
-					</li>
-					<li><button id="webcam" 
-						:class="{'active': isActiveTabs.webcam}"
-						@click="activateTab('webcam')"
-						>Online Webcam</button>
-					</li>
-				</ul>
-				
-			</div>
-			<div class="col-3 col-lg-2">
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
 
-				<ul class="tabs__control">
-					<li><button class="owl_sex prev"> &nbsp; </button></li>
-					<li><button class="owl_sex next"> &nbsp; </button></li>
-				</ul>
-				
-			</div>
-		</div>
-
-	</div>
-</section>
-
-<section id="tabs">
-	<div class="container">
-
-		<div class="row">
-			<div class="col">
-
-				<div class="tabs__cont">
-
-					<div id="owl_sex" class="owl-carousel" v-show="isActiveTabs.sex">
-
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="item.photo" alt="girl" class="tabs__img">
-							<p class="tabs__online"></p>
-							<p class="tabs__name">{{ item.name }}</p>
-							<p class="tabs__descr">{{ item.descr }}</p>
-						</a>
+						<ul class="footer__lists">
+							<li>In search of a boy</li>
+							<li v-for="(item, index) in footerDATA.Boy">
+								<a :href="item"
+									@click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }}
+									looking for a boy</a>
+							</li>
+						</ul>
 
 					</div>
+					<div class="col-md-4">
 
-					<div id="owl_gey" class="owl-carousel" v-show="isActiveTabs.gey">
-
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.gey" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="item.photo" alt="gey" class="tabs__img">
-							<p class="tabs__online"></p>
-							<p class="tabs__name">{{ item.name }}</p>
-							<p class="tabs__descr">{{ item.descr }}</p>
-						</a>
-
-					</div>
-
-					<div id="owl_webcam" class="owl-carousel" v-show="isActiveTabs.webcam">
-
-						<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.webcam" @click="openInNewTab(redirectToNewTab, $event)">
-							<img :src="item.photo" alt="girl" class="tabs__img">
-							<p class="tabs__online"></p>
-							<p class="tabs__name">{{ item.name }}</p>
-							<p class="tabs__descr">{{ item.descr }}</p>
-						</a>
+						<ul class="footer__lists">
+							<li>In search of a girl</li>
+							<li v-for="(item, index) in footerDATA.Girl">
+								<a :href="item"
+									@click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }}
+									looking for a girl</a>
+							</li>
+						</ul>
 
 					</div>
+					<div class="col-md-4">
 
+						<ul class="footer__lists last">
+							<li>In search of a man</li>
+							<li v-for="(item, index) in footerDATA.Man">
+								<a :href="item"
+									@click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }}
+									looking for a man</a>
+							</li>
+						</ul>
+
+					</div>
 				</div>
+				<div class="row">
+					<div class="col">
 
+						<p class="footer__text1">© 2019 Cupids | All Rights Reserved</p>
+						<p class="footer__text2">Disclaimer: Great efforts are made to maintain reliable data on all
+							offers presented. However, this data is provided without warranty. Users should always check
+							the offer provider’s official website for current terms and details. Our site receives
+							compensation from many of the offers listed on the site. Along with key review factors, this
+							compensation may impact how and where products appear across the site (including, for
+							example, the order in which they appear). Our site does not include the entire universe of
+							available offers. Editorial opinions expressed on the site are strictly our own and are not
+							provided, endorsed, or approved by advertisers.</p>
+
+					</div>
+				</div>
 			</div>
-		</div>
+		</footer>
+
+
+		<!-- end #app -->
 	</div>
-</section>
-
-
-
-
-<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				
-				<ul class="footer__lists">
-					<li>In search of a boy</li>
-					<li v-for="(item, index) in footerDATA.Boy">
-						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a boy</a>
-					</li>
-				</ul>
-				
-			</div>
-			<div class="col-md-4">
-
-				<ul class="footer__lists">
-					<li>In search of a girl</li>
-					<li v-for="(item, index) in footerDATA.Girl">
-						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a girl</a>
-					</li>
-				</ul>
-
-			</div>
-			<div class="col-md-4">
-
-				<ul class="footer__lists last">
-					<li>In search of a man</li>
-					<li v-for="(item, index) in footerDATA.Man">
-						<a :href="item" @click="openInNewTab(redirectToNewTab, $event)">{{ index[0].toUpperCase() + index.slice(1,6) }} looking for a man</a>
-					</li>
-				</ul>
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-
-				<p class="footer__text1">© 2019 Cupids | All Rights Reserved</p>
-				<p class="footer__text2">Disclaimer: Great efforts are made to maintain reliable data on all offers presented. However, this data is provided without warranty. Users should always check the offer provider’s official website for current terms and details. Our site receives compensation from many of the offers listed on the site. Along with key review factors, this compensation may impact how and where products appear across the site (including, for example, the order in which they appear). Our site does not include the entire universe of available offers. Editorial opinions expressed on the site are strictly our own and are not provided, endorsed, or approved by advertisers.</p>
-
-			</div>
-		</div>
-	</div>
-</footer>
-
-
-<!-- end #app -->
-</div>
 
 
 	<!-- vue -->
@@ -360,12 +407,15 @@
 	<!-- production -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
 	<script src="libs/video-js/plyr.min.js"></script>
-	
+
 	<script src="js/vue-script.js?v25"></script>
 
 </body>
+
 </html>
