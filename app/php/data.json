@@ -16,10 +16,10 @@
 
 	"instagram": [
 		{
-			"big": "https://picsum.photos/id/34/300/306",
+			"big": "https://picsum.photos/id/12/300/306",
 			"smals": [
 					"https://picsum.photos/id/314/92/78",
-					"https://picsum.photos/id/334/92/78",
+					"https://picsum.photos/id/335/92/78",
 					"https://picsum.photos/id/334/92/78",
 					"https://picsum.photos/id/374/92/78"
 			],
@@ -28,7 +28,7 @@
 			"link": "https://google.com"
 		},
 		{
-			"big": "https://picsum.photos/id/34/300/306",
+			"big": "https://picsum.photos/id/14/300/306",
 			"smals": [
 				"https://picsum.photos/id/341/92/78",
 				"https://picsum.photos/id/342/92/78",

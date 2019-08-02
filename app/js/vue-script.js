@@ -45,8 +45,7 @@ let vm = new Vue({
 		},
 
 		getJSON(url, callback) {
-			var self = this;
- 			var req = new XMLHttpRequest();
+			var req = new XMLHttpRequest();
 			// req.responseType = 'json'; // not support in IE11
 			req.overrideMimeType("application/json");
 			req.open('GET', url, true);
@@ -56,8 +55,6 @@ let vm = new Vue({
 				var result = JSON.parse(req.responseText);
 				
 				callback(result);
-				
-				// self.isJSONrecieved = true;
 			};
 			req.send(null);
 
@@ -110,17 +107,14 @@ let vm = new Vue({
 			var lastSlash 	 = this.videoSource.lastIndexOf('/');
 			var videoName 	 = this.videoSource.substring(lastSlash);
 			this.videoPoster = window.location.href + "videos" + videoName.replace("mp4","jpg");
+			setTimeout(function() {
+				self.initialVideo();
+				console.log("VIDEO INIT");
+			}, 1000);
+				console.log('videoDATA:', this.videoDATA,'random', random, "videoName", videoName);
+				console.log('videoDATA - POSTER', this.videoPoster );
+				console.log('videoDATA - SOURCE', this.videoSource );
 
-				console.log('videoDATA', this.videoDATA);
-				console.log('videoDATA', random);
-				console.log('videoDATA', videoName );
-				console.log('videoDATA - def', this.videoPoster );
-				console.log('videoDATA - def', this.videoSource );
-
-				setTimeout(function(){
-					self.initialVideo();
-					console.log("VIDEO INIT");
-				}, 1000)
 
 
 			// filter
@@ -129,8 +123,20 @@ let vm = new Vue({
 
 			// tabs
 			this.tabsDATA = json.tabs;
+			// init tabs and sliders
+			setTimeout(function() {
+
+				self.initOwlSlider("#owl_sex", ".owl_sex.prev", ".owl_sex.prev");
+				self.initOwlSlider("#owl_gey", ".owl_gey.prev", ".owl_gey.prev");
+				self.initOwlSlider("#owl_webcam", ".owl_webcam.prev", ".owl_webcam.prev");
+
+				setTimeout(function() {
+					self.activateTab('sex');
+				}, 500);
+
+			}, 1500);
 				// console.log('tabsDATA', this.tabsDATA);
-			
+
 			// footer
 			this.footerDATA = json.footer;
 				// console.log('footerDATA', this.tabsDATA);
@@ -153,37 +159,15 @@ let vm = new Vue({
 			});
 		},
 		
-		owl_sex() {
-			$("#owl_sex").owlCarousel(this.owlInit);
-			var owl = $('#owl_sex');
-			$('.owl_sex.prev').click(function() {
-				owl.trigger('prev.owl.carousel', [250]);
+		initOwlSlider(sliderSelector, buttonSelectorPrev, buttonSelectorNext) {
+			$(sliderSelector).owlCarousel(this.owlInit);
+			$(buttonSelectorPrev).click(function() {
+				sliderSelector.trigger('prev.owl.carousel', [250]);
 			});
-			$('.owl_sex.next').click(function() {
-				owl.trigger('next.owl.carousel', [250]);
+			$(buttonSelectorNext).click(function() {
+				sliderSelector.trigger('next.owl.carousel', [250]);
 			});
-		},
-		
-		owl_gey() {
-			$("#owl_gey").owlCarousel(this.owlInit);
-			var owl = $('#owl_gey');
-			$('.owl_sex.prev').click(function() {
-				owl.trigger('prev.owl.carousel', [250]);
-			});
-			$('.owl_sex.next').click(function() {
-				owl.trigger('next.owl.carousel', [250]);
-			});
-		},
-		
-		owl_webcam() {
-			$("#owl_webcam").owlCarousel(this.owlInit);
-			var owl = $('#owl_webcam');
-			$('.owl_sex.prev').click(function() {
-				owl.trigger('prev.owl.carousel', [250]);
-			});
-			$('.owl_sex.next').click(function() {
-				owl.trigger('next.owl.carousel', [250]);
-			});
+			console.log("Owl-init", sliderSelector);
 		},
 
 		randomNum(max = 10) {
@@ -253,24 +237,6 @@ let vm = new Vue({
 			return value.indexOf('http') != -1;
 		},
 
-		getUserLocation(userIp) {
-			// BLOCKED BY SERVICE - DEPRICATED
-			userIp = ( userIp != undefined) ? userIp : '194.183.167.96' ; //IP Kyiv
-
-			var req = new XMLHttpRequest();
-			var url = "https://api.ipinfodb.com/v3/ip-city/?key=10376990a6c7e07567a8beeda379911a15af1bcc5e86e898820530ab5c79dc1c&ip=" + userIp;
-
-			req.overrideMimeType("text/html");
-			req.open('GET', url, true);
-			req.onload  = function() { // запрос завершился
-				var result = req.responseText;
-				if ( req.responseText.length == 0 ) console.error("AJAX Error - in getUserLocation()");
-				console.log("getUserLocation ! ! !: ", result);
-			};
-			req.send(null);
-
-		},
-
 		getUserLocationFromServer(){
 			var req = new XMLHttpRequest();
 			var url = window.location.href + "php/get_localizetion.php";
@@ -315,39 +281,21 @@ let vm = new Vue({
 		},
 
 	},
-	beforeMount(){
-
-		var url = window.location.href + "php/";
-			var urlLocal = window.location.href + "php/data.json";
-		// this.getJSON(url, this.separetaJSON);
-			this.getJSON(urlLocal, this.separetaJSON);
-
-	},
-	mounted(){
+	beforeMount() {},
+	mounted() {
 		var self = this;
 
-		// this.initialVideo();
+		var url = window.location.href + "php/";
+			var url = window.location.href + "php/data.json"; // LOCAL DATA - for test only
+		this.getJSON(url, this.separetaJSON);
 
-		window.onload = function(){
-
-			setTimeout(function() { 
-				self.owl_sex();
-				self.owl_gey();
-				self.owl_webcam();
-				self.activateTab('sex') 
-			}, 1500);
+		var id = setInterval(function() {
+			if( self.isJSONrecieved ) {
+				self.topCarousel();
+				clearInterval(id);
+			}
+		}, 500)
 			
-			console.log("WINDOW ON LOAD");
-
-			var id = setInterval(function() {
-				if( self.isJSONrecieved ) {
-					self.topCarousel();
-					clearInterval(id);
-				}
-			}, 500)
-			
-		}
-		
 	},
 	updated(){
 		console.log("UPDATED");
