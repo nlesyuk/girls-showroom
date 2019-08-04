@@ -22,20 +22,7 @@ let vm = new Vue({
 		filterIam: '',
 		filterLooking: '',
 		tabsDATA: '',
-		footerDATA: '',
-		owlInit: {
-			loop: true,
-			margin: 0,
-			nav: false,
-			loop: true,
-			responsive: {
-				320:{items: 3},
-				546:{items: 4},
-				768:{items: 5},
-				992:{items: 6},
-				1140:{items: 6}
-			}
-		}
+		footerDATA: ''
 	},
 	methods: {
 
@@ -115,8 +102,6 @@ let vm = new Vue({
 				console.log('videoDATA - POSTER', this.videoPoster );
 				console.log('videoDATA - SOURCE', this.videoSource );
 
-
-
 			// filter
 			this.filterDATA = json.filter;
 				// console.log('filterDATA', this.filterDATA);
@@ -160,7 +145,19 @@ let vm = new Vue({
 		},
 		
 		initOwlSlider(sliderSelector, buttonSelectorPrev, buttonSelectorNext) {
-			$(sliderSelector).owlCarousel(this.owlInit);
+			$(sliderSelector).owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: false,
+				loop: true,
+				responsive: {
+					320:{items: 3},
+					546:{items: 4},
+					768:{items: 5},
+					992:{items: 6},
+					1140:{items: 6}
+				}
+			});
 			$(buttonSelectorPrev).click(function() {
 				sliderSelector.trigger('prev.owl.carousel', [250]);
 			});
