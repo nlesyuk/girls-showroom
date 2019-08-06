@@ -74,8 +74,6 @@
 					</div>
 				</div>
 
-				<!-- <a href="//google.com" @click="openInNewTab(redirectToNewTab, $event)">CLICK</a> -->
-
 				<div class="row">
 					<div class="col">
 
@@ -151,8 +149,8 @@
 							<ul class="maps__girls" v-show="isShowMapsGirls">
 								<li v-for="(item, index) in mapsDATA.girls">
 									<a :href="mapsDATA.link" @click="openInNewTab(redirectToNewTab, $event)">
-										<img :src="item" alt="girl" v-if="isLink(item)">
-										<span v-if="!isLink(item)">4</span>
+										<img :src="item" alt="girl" v-if="isImage(item)">
+										<span v-if="!isImage(item)">4</span>
 									</a>
 								</li>
 							</ul>
@@ -296,7 +294,7 @@
 
 								<a :href="item.link" class="tabs__item" v-for="item in tabsDATA.sex"
 									@click="openInNewTab(redirectToNewTab, $event)">
-									<img :src="item.photo" alt="girl" class="tabs__img">
+									<img :src="item.photo" alt="girl" class="tabs__img" >
 									<p class="tabs__online"></p>
 									<p class="tabs__name">{{ item.name }}</p>
 									<p class="tabs__descr">{{ item.descr }}</p>
@@ -414,8 +412,7 @@
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
 	<script src="libs/video-js/plyr.min.js"></script>
 
-	<script src="js/vue-script.js?v25"></script>
+	<script src="js/vue-script.js?v27"></script>
 
 </body>
-
 </html>

@@ -4,24 +4,36 @@
 	"top_slider": [
 		{
 			"link": "https://google.com",
-			"avatar": "https://picsum.photos/id/34/44/44",
+			"avatar": "./DATA/top_slider/1.png",
 			"descr": "I'm Julia, 21 y.o."
 		},
 		{
 			"link": "https://google.com",
-			"avatar": "https://picsum.photos/id/44/44/44",
+			"avatar": "./DATA/top_slider/2.png",
 			"descr": "I'm Marii, 25 y.o. 21"
 		}
 	],
 
 	"instagram": [
 		{
-			"big": "https://picsum.photos/id/12/300/306",
+			"big": "./DATA/instagram/1/big.jpg",
 			"smals": [
-					"https://picsum.photos/id/314/92/78",
-					"https://picsum.photos/id/335/92/78",
-					"https://picsum.photos/id/334/92/78",
-					"https://picsum.photos/id/374/92/78"
+					"./DATA/instagram/1/1.jpg",
+					"./DATA/instagram/1/2.jpg",
+					"./DATA/instagram/1/1.jpg",
+					"./DATA/instagram/1/2.jpg"
+			],
+			"name": "Nataly",
+			"location": "Rom, Italy",
+			"link": "https://google.com"
+		},
+		{
+			"big": "./DATA/instagram/2/big.jpg",
+			"smals": [
+					"./DATA/instagram/2/1.jpg",
+					"./DATA/instagram/2/2.jpg",
+					"./DATA/instagram/2/1.jpg",
+					"./DATA/instagram/2/2.jpg"
 			],
 			"name": "Nataly",
 			"location": "Rom, Italy",
@@ -45,63 +57,63 @@
 		"link": "https://google.com",
 		"user_ip": "194.183.167.96, 172.68.239.30",
 		"girls": [
-			"https://picsum.photos/id/99/48/48",
-			"https://picsum.photos/id/96/48/48",
-			"https://picsum.photos/id/91/48/48",
-			"https://picsum.photos/id/92/48/48",
+			"./DATA/maps/1.jpg",
+			"./DATA/maps/2.jpg",
+			"./DATA/maps/2.jpg",
+			"./DATA/maps/1.jpg",
+			"./DATA/maps/2.jpg",
 			"4",
-			"https://picsum.photos/id/93/48/48",
-			"https://picsum.photos/id/94/48/48"
+			"./DATA/maps/1.jpg"
 		]
 	},
 
 	"top_active": [
-			{
-					"avatar": "https://picsum.photos/id/204/184/308",
-					"name": "Ekaterina, 23",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/304/184/308",
-					"name": "Olya, 22",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/174/184/308",
-					"name": "Marii, 21",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/124/184/308",
-					"name": "Alexa, 25",
-					"link": "https://google.com"
-			},
+		{
+				"avatar": "./DATA/top_active/1.jpg",
+				"name": "Ekaterina, 23",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "./DATA/top_active/2.jpg",
+				"name": "Olya, 22",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "./DATA/top_active/2.jpg",
+				"name": "Marii, 21",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "https://picsum.photos/id/124/184/308",
+				"name": "Alexa, 25",
+				"link": "https://google.com"
+		},
 
-			{
-					"avatar": "https://picsum.photos/id/214/184/308",
-					"name": "Ekaterina, 18",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/314/184/308",
-					"name": "Olya, 33",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/184/184/308",
-					"name": "Marii, 27",
-					"link": "https://google.com"
-			},
-			{
-					"avatar": "https://picsum.photos/id/134/184/308",
-					"name": "Alexa, 28",
-					"link": "https://google.com"
-			}
+		{
+				"avatar": "https://picsum.photos/id/214/184/308",
+				"name": "Ekaterina, 18",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "https://picsum.photos/id/314/184/308",
+				"name": "Olya, 33",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "https://picsum.photos/id/184/184/308",
+				"name": "Marii, 27",
+				"link": "https://google.com"
+		},
+		{
+				"avatar": "https://picsum.photos/id/134/184/308",
+				"name": "Alexa, 28",
+				"link": "https://google.com"
+		}
 	],
 
 	"videos": [
-		"videos/1.mp4",
-		"videos/3.mp4"
+		"DATA/videos/1.mp4",
+		"DATA/videos/3.mp4"
 	],
 
 	"filter": {

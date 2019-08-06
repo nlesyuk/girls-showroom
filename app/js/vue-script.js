@@ -93,7 +93,7 @@ let vm = new Vue({
 
 			var lastSlash 	 = this.videoSource.lastIndexOf('/');
 			var videoName 	 = this.videoSource.substring(lastSlash);
-			this.videoPoster = window.location.href + "videos" + videoName.replace("mp4","jpg");
+			this.videoPoster = window.location.href + "DATA/videos" + videoName.replace("mp4","jpg");
 			setTimeout(function() {
 				self.initialVideo();
 				console.log("VIDEO INIT");
@@ -129,7 +129,8 @@ let vm = new Vue({
 		},
 		
 		topCarousel() {
-			$("#carousel").owlCarousel({
+			var owl = $('#carousel');
+			owl.owlCarousel({
 				loop: true,
 				margin: 0,
 				nav: false,
@@ -141,6 +142,14 @@ let vm = new Vue({
 					992:{items: 10},
 					1140:{items: 15}
 				}
+			});
+			owl.on('mousewheel', '.owl-stage', function (e) {
+				if (e.deltaY>0) {
+					owl.trigger('next.owl');
+				} else {
+					owl.trigger('prev.owl');
+				}
+				e.preventDefault();
 			});
 		},
 		
@@ -234,6 +243,10 @@ let vm = new Vue({
 			return value.indexOf('http') != -1;
 		},
 
+		isImage(value){
+			if( value.indexOf('jpg') != -1 || value.indexOf('png') != -1) return true
+			return false
+		},
 		getUserLocationFromServer(){
 			var req = new XMLHttpRequest();
 			var url = window.location.href + "php/get_localizetion.php";
@@ -283,7 +296,7 @@ let vm = new Vue({
 		var self = this;
 
 		var url = window.location.href + "php/";
-			var url = window.location.href + "php/data.json"; // LOCAL DATA - for test only
+			// var url = window.location.href + "php/data.json"; // LOCAL DATA - for test only
 		this.getJSON(url, this.separetaJSON);
 
 		var id = setInterval(function() {
